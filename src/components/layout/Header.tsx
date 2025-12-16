@@ -43,15 +43,15 @@ export function Header() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center shadow-gold-glow transition-transform duration-300 group-hover:scale-110">
-              <span className="text-primary font-display font-bold text-xl">E</span>
+            <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent-glow transition-transform duration-300 group-hover:scale-110">
+              <span className="text-accent-foreground font-display font-bold text-lg">EG</span>
             </div>
             <div className="flex flex-col">
               <span className={cn(
                 "font-display font-bold text-xl leading-none transition-colors",
                 isScrolled ? "text-foreground" : "text-primary-foreground"
               )}>
-                Edifice
+                Ever Grace
               </span>
               <span className={cn(
                 "text-xs tracking-[0.2em] uppercase transition-colors",

@@ -20,7 +20,7 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@edifice.com", "projects@edifice.com"],
+    details: ["info@evergrace.com", "projects@evergrace.com"],
   },
   {
     icon: Clock,

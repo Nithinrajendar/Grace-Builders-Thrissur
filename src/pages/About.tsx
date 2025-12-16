@@ -64,7 +64,7 @@ const About = () => {
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4 animate-fade-in">
-              About Edifice
+              About Ever Grace
             </span>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-primary-foreground mb-6 animate-fade-in animation-delay-100">
               Building Excellence Since 1995
