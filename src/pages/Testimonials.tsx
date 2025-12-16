@@ -11,7 +11,7 @@ const testimonials = [
     role: "CEO, Anderson Real Estate",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop",
     rating: 5,
-    text: "Edifice Construction exceeded all our expectations. Their attention to detail and commitment to quality made our $50M commercial development a tremendous success. The project was completed ahead of schedule and under budget.",
+    text: "Ever Grace Construction exceeded all our expectations. Their attention to detail and commitment to quality made our $50M commercial development a tremendous success. The project was completed ahead of schedule and under budget.",
     project: "Azure Tower",
   },
   {
@@ -20,7 +20,7 @@ const testimonials = [
     role: "Homeowner",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
     rating: 5,
-    text: "Building our dream home was a journey, and Edifice made it unforgettable. From the initial design consultation to the final walkthrough, their team was professional, communicative, and truly cared about bringing our vision to life.",
+    text: "Building our dream home was a journey, and Ever Grace made it unforgettable. From the initial design consultation to the final walkthrough, their team was professional, communicative, and truly cared about bringing our vision to life.",
     project: "Custom Residence",
   },
   {
@@ -29,7 +29,7 @@ const testimonials = [
     role: "Director of Facilities, TechCorp",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
     rating: 5,
-    text: "When we needed a new headquarters that would reflect our innovative culture, Edifice delivered beyond our imagination. The LEED Platinum certification and cutting-edge design have made our building a landmark.",
+    text: "When we needed a new headquarters that would reflect our innovative culture, Ever Grace delivered beyond our imagination. The LEED Platinum certification and cutting-edge design have made our building a landmark.",
     project: "Innovation Campus",
   },
   {
@@ -38,7 +38,7 @@ const testimonials = [
     role: "Property Developer",
     image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&h=150&fit=crop",
     rating: 5,
-    text: "I've worked with many contractors over my 20-year career, but Edifice stands out for their professionalism and quality. They've become our go-to partner for all major developments.",
+    text: "I've worked with many contractors over my 20-year career, but Ever Grace stands out for their professionalism and quality. They've become our go-to partner for all major developments.",
     project: "Harmony Residences",
   },
   {
@@ -47,7 +47,7 @@ const testimonials = [
     role: "City Planning Director",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop",
     rating: 5,
-    text: "The Metro Central Station project was complex, but Edifice handled every challenge with expertise. They delivered a world-class transit hub that serves our community beautifully.",
+    text: "The Metro Central Station project was complex, but Ever Grace handled every challenge with expertise. They delivered a world-class transit hub that serves our community beautifully.",
     project: "Metro Central Station",
   },
   {
@@ -56,7 +56,7 @@ const testimonials = [
     role: "Hospital Administrator",
     image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop",
     rating: 5,
-    text: "Our new medical center required specialized construction expertise, and Edifice delivered flawlessly. The healing environment they created has positively impacted patient outcomes.",
+    text: "Our new medical center required specialized construction expertise, and Ever Grace delivered flawlessly. The healing environment they created has positively impacted patient outcomes.",
     project: "Sunrise Medical Center",
   },
 ];

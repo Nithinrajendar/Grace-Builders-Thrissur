@@ -26,11 +26,11 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-gold rounded-lg flex items-center justify-center">
-                <span className="text-primary font-display font-bold text-xl">E</span>
+              <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center">
+                <span className="text-accent-foreground font-display font-bold text-xl">EG</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-display font-bold text-xl leading-none">Edifice</span>
+                <span className="font-display font-bold text-xl leading-none">Ever Grace</span>
                 <span className="text-xs tracking-[0.2em] uppercase text-primary-foreground/70">
                   Construction
                 </span>
@@ -100,8 +100,8 @@ export function Footer() {
               </li>
               <li className="flex gap-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="mailto:info@edifice.com" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  info@edifice.com
+              <a href="mailto:info@evergrace.com" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  info@evergrace.com
                 </a>
               </li>
               <li className="flex gap-3">
@@ -119,7 +119,7 @@ export function Footer() {
       <div className="border-t border-primary-foreground/10">
         <div className="container-custom py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-primary-foreground/60 text-sm">
-            © {new Date().getFullYear()} Edifice Construction. All rights reserved.
+            © {new Date().getFullYear()} Ever Grace Construction. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-primary-foreground/60 hover:text-accent transition-colors">
