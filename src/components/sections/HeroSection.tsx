@@ -32,7 +32,7 @@ export function HeroSection() {
         <div className="max-w-3xl">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-8 animate-fade-in">
-            <Award className="w-4 h-4 text-accent" />
+            <Award className="w-4 h-4 text-white" />
             <span className="text-sm font-medium text-white/90">
               Award-Winning Construction Excellence
             </span>
@@ -41,7 +41,7 @@ export function HeroSection() {
           {/* Headline */}
           <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 animate-fade-in animation-delay-100">
             Building Tomorrow's{" "}
-            <span className="text-accent">Landmarks</span>{" "}
+            <span className="text-white/90">Landmarks</span>{" "}
             Today
           </h1>
 
@@ -72,7 +72,7 @@ export function HeroSection() {
                 key={stat.label}
                 className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300"
               >
-                <stat.icon className="w-6 h-6 text-accent mb-2" />
+                <stat.icon className="w-6 h-6 text-white mb-2" />
                 <div className="text-3xl font-display font-bold text-white">
                   {stat.value}
                 </div>
@@ -86,7 +86,7 @@ export function HeroSection() {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
         <div className="w-8 h-12 rounded-full border-2 border-white/30 flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-accent rounded-full animate-pulse" />
+          <div className="w-1.5 h-3 bg-white rounded-full animate-pulse" />
         </div>
       </div>
     </section>
