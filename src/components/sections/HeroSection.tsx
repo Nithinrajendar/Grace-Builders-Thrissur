@@ -70,7 +70,7 @@ export function HeroSection() {
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:bg-white/15 transition-all duration-300"
+                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/30 hover:bg-white/15 hover:border-white/50 transition-all duration-300"
               >
                 <stat.icon className="w-6 h-6 text-white mb-2" />
                 <div className="text-3xl font-display font-bold text-white">
