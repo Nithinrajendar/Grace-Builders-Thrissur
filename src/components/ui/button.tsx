@@ -11,15 +11,15 @@ const buttonVariants = cva(
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90 hover:shadow-lg",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input bg-background hover:bg-secondary hover:text-secondary-foreground",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-secondary hover:text-secondary-foreground",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        // Premium black & white variants
-        gold: "bg-primary text-primary-foreground font-semibold hover:shadow-[0_4px_20px_hsla(0,0%,0%,0.25)] hover:scale-[1.02] active:scale-[0.98]",
-        "gold-outline": "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground font-semibold",
+        // Premium variants
+        gold: "bg-accent text-accent-foreground font-semibold hover:shadow-[0_4px_20px_hsla(199,89%,48%,0.3)] hover:scale-[1.02] active:scale-[0.98]",
+        "gold-outline": "border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold",
         navy: "bg-primary text-primary-foreground font-semibold hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]",
-        hero: "bg-white text-black font-semibold text-base px-8 py-6 hover:shadow-[0_4px_20px_hsla(0,0%,100%,0.3)] hover:scale-[1.02] active:scale-[0.98]",
+        hero: "bg-accent text-accent-foreground font-semibold text-base px-8 py-6 hover:shadow-[0_4px_20px_hsla(199,89%,48%,0.3)] hover:scale-[1.02] active:scale-[0.98]",
         "hero-outline": "border-2 border-white/30 text-white font-semibold text-base px-8 py-6 hover:bg-white/10 hover:border-white/50",
       },
       size: {

@@ -41,7 +41,7 @@ export function ServicesSection() {
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <span className="inline-block text-primary font-semibold text-sm tracking-wider uppercase mb-4">
+          <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4">
             What We Offer
           </span>
           <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-6">
@@ -67,17 +67,17 @@ export function ServicesSection() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="flex items-start gap-4">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <service.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                  <service.icon className="w-7 h-7 text-accent group-hover:text-accent-foreground transition-colors" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-display text-xl font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+                  <h3 className="font-display text-xl font-semibold text-foreground mb-2 group-hover:text-accent transition-colors">
                     {service.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed mb-4">
                     {service.description}
                   </p>
-                  <div className="flex items-center gap-2 text-primary font-medium text-sm">
+                  <div className="flex items-center gap-2 text-accent font-medium text-sm">
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </div>

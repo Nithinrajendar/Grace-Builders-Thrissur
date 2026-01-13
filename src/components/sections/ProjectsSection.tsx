@@ -64,7 +64,7 @@ export function ProjectsSection() {
         {/* Section Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
           <div className="max-w-2xl">
-            <span className="inline-block text-primary font-semibold text-sm tracking-wider uppercase mb-4">
+            <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4">
               Our Portfolio
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -85,8 +85,8 @@ export function ProjectsSection() {
                 className={cn(
                   "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                   activeCategory === category
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-muted-foreground hover:bg-primary/10 hover:text-primary"
+                    ? "bg-accent text-accent-foreground"
+                    : "bg-secondary text-muted-foreground hover:bg-accent/10 hover:text-accent"
                 )}
               >
                 {category}
@@ -118,7 +118,7 @@ export function ProjectsSection() {
 
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <span className="inline-block px-3 py-1 bg-white/90 text-black text-xs font-medium rounded-full mb-3">
+                <span className="inline-block px-3 py-1 bg-accent/90 text-accent-foreground text-xs font-medium rounded-full mb-3">
                   {project.category}
                 </span>
                 <h3 className="font-display text-xl font-semibold text-primary-foreground mb-2">
