@@ -43,19 +43,19 @@ export function Header() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center shadow-lg transition-transform duration-300 group-hover:scale-110">
-              <span className="text-white font-display font-bold text-lg">EG</span>
+            <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent-glow transition-transform duration-300 group-hover:scale-110">
+              <span className="text-accent-foreground font-display font-bold text-lg">EG</span>
             </div>
             <div className="flex flex-col">
               <span className={cn(
                 "font-display font-bold text-xl leading-none transition-colors",
-                isScrolled ? "text-black" : "text-white"
+                isScrolled ? "text-foreground" : "text-primary-foreground"
               )}>
                 Ever Grace
               </span>
               <span className={cn(
                 "text-xs tracking-[0.2em] uppercase transition-colors",
-                isScrolled ? "text-black/60" : "text-white/70"
+                isScrolled ? "text-muted-foreground" : "text-primary-foreground/70"
               )}>
                 Construction
               </span>
@@ -71,12 +71,11 @@ export function Header() {
                 className={cn(
                   "relative text-sm font-medium transition-colors duration-300 py-2",
                   location.pathname === link.path
-                    ? isScrolled ? "text-black" : "text-white"
+                    ? "text-accent"
                     : isScrolled
-                    ? "text-black/70 hover:text-black"
-                    : "text-white/90 hover:text-white",
-                  "after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left",
-                  isScrolled ? "after:bg-black" : "after:bg-white",
+                    ? "text-foreground hover:text-accent"
+                    : "text-primary-foreground/90 hover:text-primary-foreground",
+                  "after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-accent after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left",
                   location.pathname === link.path && "after:scale-x-100"
                 )}
               >
@@ -91,13 +90,13 @@ export function Header() {
               href="tel:+1234567890"
               className={cn(
                 "flex items-center gap-2 text-sm font-medium transition-colors",
-                isScrolled ? "text-black" : "text-white"
+                isScrolled ? "text-foreground" : "text-primary-foreground"
               )}
             >
               <Phone className="w-4 h-4" />
               <span>+1 (234) 567-890</span>
             </a>
-            <Button className="bg-black text-white hover:bg-black/90" asChild>
+            <Button variant="gold" asChild>
               <Link to="/contact">Get a Quote</Link>
             </Button>
           </div>
@@ -107,7 +106,7 @@ export function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={cn(
               "lg:hidden p-2 transition-colors",
-              isScrolled ? "text-black" : "text-white"
+              isScrolled ? "text-foreground" : "text-primary-foreground"
             )}
             aria-label="Toggle menu"
           >
@@ -130,15 +129,15 @@ export function Header() {
                 className={cn(
                   "text-lg font-medium py-2 transition-colors",
                   location.pathname === link.path
-                    ? "text-black"
-                    : "text-black/70 hover:text-black"
+                    ? "text-accent"
+                    : "text-foreground hover:text-accent"
                 )}
               >
                 {link.name}
               </Link>
             ))}
             <div className="pt-4 border-t border-border">
-              <Button className="w-full bg-black text-white hover:bg-black/90" asChild>
+              <Button variant="gold" className="w-full" asChild>
                 <Link to="/contact">Get a Quote</Link>
               </Button>
             </div>

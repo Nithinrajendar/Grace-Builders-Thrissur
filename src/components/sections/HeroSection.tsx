@@ -31,22 +31,22 @@ export function HeroSection() {
       <div className="container-custom relative z-10 pt-32 pb-20">
         <div className="max-w-3xl">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-8 animate-fade-in">
-            <Award className="w-4 h-4 text-white" />
-            <span className="text-sm font-medium text-white/90">
+          <div className="inline-flex items-center gap-2 bg-accent/20 backdrop-blur-sm px-4 py-2 rounded-full mb-8 animate-fade-in">
+            <Award className="w-4 h-4 text-accent" />
+            <span className="text-sm font-medium text-primary-foreground/90">
               Award-Winning Construction Excellence
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 animate-fade-in animation-delay-100">
+          <h1 className="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-primary-foreground leading-[1.1] mb-6 animate-fade-in animation-delay-100">
             Building Tomorrow's{" "}
-            <span className="text-white/90">Landmarks</span>{" "}
+            <span className="text-accent">Landmarks</span>{" "}
             Today
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl text-white/80 leading-relaxed mb-10 max-w-2xl animate-fade-in animation-delay-200">
+          <p className="text-xl text-primary-foreground/80 leading-relaxed mb-10 max-w-2xl animate-fade-in animation-delay-200">
             For over 28 years, we've been transforming visions into architectural 
             masterpieces. From residential homes to commercial complexes, we deliver 
             excellence in every project.
@@ -70,13 +70,13 @@ export function HeroSection() {
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/30 hover:bg-white/15 hover:border-white/50 transition-all duration-300"
+                className="bg-primary-foreground/5 backdrop-blur-sm rounded-xl p-4 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-all duration-300"
               >
-                <stat.icon className="w-6 h-6 text-white mb-2" />
-                <div className="text-3xl font-display font-bold text-white">
+                <stat.icon className="w-6 h-6 text-accent mb-2" />
+                <div className="text-3xl font-display font-bold text-primary-foreground">
                   {stat.value}
                 </div>
-                <div className="text-sm text-white/70">{stat.label}</div>
+                <div className="text-sm text-primary-foreground/70">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -85,8 +85,8 @@ export function HeroSection() {
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-12 rounded-full border-2 border-white/30 flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-white rounded-full animate-pulse" />
+        <div className="w-8 h-12 rounded-full border-2 border-primary-foreground/30 flex justify-center pt-2">
+          <div className="w-1.5 h-3 bg-accent rounded-full animate-pulse" />
         </div>
       </div>
     </section>
