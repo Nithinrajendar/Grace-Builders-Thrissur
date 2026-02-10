@@ -1,99 +1,13 @@
 import { Layout } from "@/components/layout/Layout";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { projects, statusLabels, type ProjectStatus } from "@/data/projects";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
-const projects = [
-  {
-    id: 1,
-    title: "Azure Tower",
-    category: "Commercial",
-    description: "A 45-story mixed-use tower featuring cutting-edge sustainable design with LEED Platinum certification. The building houses premium office spaces, luxury retail, and a rooftop garden.",
-    location: "Manhattan, New York",
-    year: "2023",
-    value: "$180M",
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=600&fit=crop",
-  },
-  {
-    id: 2,
-    title: "Harmony Residences",
-    category: "Residential",
-    description: "Luxury waterfront apartments featuring panoramic city views, smart home technology, and resort-style amenities including infinity pools and private marina access.",
-    location: "Miami, Florida",
-    year: "2023",
-    value: "$95M",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
-  },
-  {
-    id: 3,
-    title: "Metro Central Station",
-    category: "Infrastructure",
-    description: "A modern transit hub serving over 500,000 daily commuters with state-of-the-art facilities, retail spaces, and seamless multi-modal transportation connections.",
-    location: "Chicago, Illinois",
-    year: "2022",
-    value: "$320M",
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop",
-  },
-  {
-    id: 4,
-    title: "The Pinnacle Office Complex",
-    category: "Commercial",
-    description: "LEED Platinum certified corporate headquarters featuring biophilic design, advanced air filtration, and flexible workspaces designed for the future of work.",
-    location: "San Francisco, California",
-    year: "2022",
-    value: "$145M",
-    image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?w=800&h=600&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Riverside Villa Collection",
-    category: "Residential",
-    description: "A collection of 12 contemporary family homes with sustainable features including solar panels, geothermal heating, and rainwater harvesting systems.",
-    location: "Austin, Texas",
-    year: "2023",
-    value: "$48M",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Heritage Mall Renovation",
-    category: "Renovation",
-    description: "Historic building transformed into modern retail and dining destination while preserving original architectural elements and achieving modern safety standards.",
-    location: "Boston, Massachusetts",
-    year: "2021",
-    value: "$78M",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop",
-  },
-  {
-    id: 7,
-    title: "Sunrise Medical Center",
-    category: "Commercial",
-    description: "State-of-the-art healthcare facility with 500 beds, advanced diagnostic equipment, and healing gardens designed to promote patient recovery.",
-    location: "Phoenix, Arizona",
-    year: "2022",
-    value: "$290M",
-    image: "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?w=800&h=600&fit=crop",
-  },
-  {
-    id: 8,
-    title: "Innovation Campus",
-    category: "Commercial",
-    description: "Tech campus featuring collaborative workspaces, research labs, and amenities designed to foster innovation and attract top talent.",
-    location: "Seattle, Washington",
-    year: "2023",
-    value: "$210M",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop",
-  },
-];
-
-const categories = ["All", "Commercial", "Residential", "Infrastructure", "Renovation"];
+const statusTabs: ProjectStatus[] = ["ongoing", "upcoming", "completed"];
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-
-  const filteredProjects = activeCategory === "All"
-    ? projects
-    : projects.filter(p => p.category === activeCategory);
 
   return (
     <Layout>
@@ -108,67 +22,76 @@ const Projects = () => {
               Projects That Define Excellence
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed animate-fade-in animation-delay-200">
-              Explore our diverse portfolio of completed projects spanning residential, 
-              commercial, and infrastructure developments across the nation.
+              Explore our diverse portfolio spanning current, upcoming, and completed
+              developments across the nation.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Filter & Grid */}
+      {/* Tabs & Grid */}
       <section className="section-padding bg-background">
         <div className="container-custom">
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={cn(
-                  "px-6 py-3 rounded-full text-sm font-medium transition-all duration-300",
-                  activeCategory === category
-                    ? "bg-accent text-accent-foreground shadow-lg"
-                    : "bg-secondary text-muted-foreground hover:bg-accent/10 hover:text-accent"
-                )}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+          <Tabs defaultValue="ongoing" className="w-full">
+            <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent h-auto mb-12">
+              {statusTabs.map((status) => (
+                <TabsTrigger
+                  key={status}
+                  value={status}
+                  className="px-6 py-3 rounded-full text-sm font-medium data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-lg bg-secondary text-muted-foreground"
+                >
+                  {statusLabels[status]}
+                </TabsTrigger>
+              ))}
+            </TabsList>
 
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <div
-                key={project.id}
-                className="group cursor-pointer animate-scale-in"
-                style={{ animationDelay: `${index * 100}ms` }}
-                onClick={() => setSelectedProject(project)}
-              >
-                <div className="relative rounded-2xl overflow-hidden shadow-elegant">
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                    <span className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs font-medium rounded-full mb-3">
-                      {project.category}
-                    </span>
-                    <h3 className="font-display text-xl font-semibold text-primary-foreground mb-1">
-                      {project.title}
-                    </h3>
-                    <p className="text-primary-foreground/80 text-sm">
-                      {project.location}
+            {statusTabs.map((status) => {
+              const filtered = projects.filter((p) => p.status === status);
+              return (
+                <TabsContent key={status} value={status}>
+                  {filtered.length === 0 ? (
+                    <p className="text-center text-muted-foreground py-16 text-lg">
+                      No {statusLabels[status].toLowerCase()} projects at this time.
                     </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+                  ) : (
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {filtered.map((project, index) => (
+                        <div
+                          key={project.id}
+                          className="group cursor-pointer animate-scale-in"
+                          style={{ animationDelay: `${index * 100}ms` }}
+                          onClick={() => setSelectedProject(project)}
+                        >
+                          <div className="relative rounded-2xl overflow-hidden shadow-elegant">
+                            <div className="aspect-[4/3] overflow-hidden">
+                              <img
+                                src={project.image}
+                                alt={project.title}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                loading="lazy"
+                              />
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                            <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                              <span className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs font-medium rounded-full mb-3">
+                                {project.category}
+                              </span>
+                              <h3 className="font-display text-xl font-semibold text-primary-foreground mb-1">
+                                {project.title}
+                              </h3>
+                              <p className="text-primary-foreground/80 text-sm">
+                                {project.location}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </TabsContent>
+              );
+            })}
+          </Tabs>
         </div>
       </section>
 
@@ -197,9 +120,14 @@ const Projects = () => {
               </button>
             </div>
             <div className="p-8">
-              <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full mb-4">
-                {selectedProject.category}
-              </span>
+              <div className="flex flex-wrap gap-2 mb-4">
+                <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full">
+                  {selectedProject.category}
+                </span>
+                <span className="inline-block px-3 py-1 bg-secondary text-muted-foreground text-sm font-medium rounded-full capitalize">
+                  {statusLabels[selectedProject.status]}
+                </span>
+              </div>
               <h2 className="font-display text-3xl font-bold text-foreground mb-4">
                 {selectedProject.title}
               </h2>
