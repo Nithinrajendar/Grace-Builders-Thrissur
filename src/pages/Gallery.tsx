@@ -2,13 +2,7 @@ import { useState } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { galleryImages, galleryCategories, type GalleryImage } from "@/data/gallery";
 import { cn } from "@/lib/utils";
-import { X } from "lucide-react";
-
-const heightClasses: Record<GalleryImage["height"], string> = {
-  tall: "row-span-2",
-  medium: "row-span-1",
-  short: "row-span-1",
-};
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
@@ -55,23 +49,20 @@ const Gallery = () => {
             ))}
           </div>
 
-          {/* Masonry Grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+          {/* Uniform Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filtered.map((image, index) => (
               <div
                 key={image.id}
-                className="break-inside-avoid group cursor-pointer overflow-hidden rounded-2xl animate-scale-in"
+                className="group cursor-pointer overflow-hidden rounded-2xl shadow-elegant animate-scale-in"
                 style={{ animationDelay: `${index * 80}ms` }}
                 onClick={() => setLightboxImage(image)}
               >
-                <div className="relative overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className={cn(
-                      "w-full object-cover transition-transform duration-700 group-hover:scale-110",
-                      image.height === "tall" ? "h-[420px]" : image.height === "medium" ? "h-[300px]" : "h-[220px]"
-                    )}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-500 flex items-end">
@@ -95,18 +86,42 @@ const Gallery = () => {
         </div>
       </section>
 
-      {/* Lightbox */}
+      {/* Lightbox with navigation */}
       {lightboxImage && (
         <div
           className="fixed inset-0 z-50 bg-foreground/90 flex items-center justify-center p-4 animate-fade-in"
           onClick={() => setLightboxImage(null)}
         >
           <button
-            className="absolute top-6 right-6 text-primary-foreground hover:text-accent transition-colors"
+            className="absolute top-6 right-6 text-primary-foreground hover:text-accent transition-colors z-10"
             onClick={() => setLightboxImage(null)}
             aria-label="Close lightbox"
           >
             <X className="w-8 h-8" />
+          </button>
+          {/* Prev */}
+          <button
+            className="absolute left-4 md:left-8 text-primary-foreground hover:text-accent transition-colors z-10"
+            onClick={(e) => {
+              e.stopPropagation();
+              const idx = filtered.findIndex((i) => i.id === lightboxImage.id);
+              if (idx > 0) setLightboxImage(filtered[idx - 1]);
+            }}
+            aria-label="Previous image"
+          >
+            <ChevronLeft className="w-10 h-10" />
+          </button>
+          {/* Next */}
+          <button
+            className="absolute right-4 md:right-8 text-primary-foreground hover:text-accent transition-colors z-10"
+            onClick={(e) => {
+              e.stopPropagation();
+              const idx = filtered.findIndex((i) => i.id === lightboxImage.id);
+              if (idx < filtered.length - 1) setLightboxImage(filtered[idx + 1]);
+            }}
+            aria-label="Next image"
+          >
+            <ChevronRight className="w-10 h-10" />
           </button>
           <img
             src={lightboxImage.src}
