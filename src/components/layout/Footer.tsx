@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
+import logoImg from "@/assets/Logo.png";
 
 const quickLinks = [
   { name: "About Us", path: "/about" },
@@ -26,19 +27,28 @@ export function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center">
-                <span className="text-accent-foreground font-display font-bold text-xl">EG</span>
+              {/* Full logo in white container */}
+              <div className="bg-white rounded-xl shadow-md flex-shrink-0 flex items-center justify-center px-2 py-1 h-14">
+                <img
+                  src={logoImg}
+                  alt="EGC Logo"
+                  className="h-full w-auto object-contain"
+                />
               </div>
-              <div className="flex flex-col">
-                <span className="font-display font-bold text-xl leading-none">Ever Grace</span>
-                <span className="text-xs tracking-[0.2em] uppercase text-primary-foreground/70">
-                  Construction
+              {/* Company name */}
+              <div className="flex flex-col leading-none">
+                <span className="font-display font-bold text-xl tracking-wide text-primary-foreground">
+                  EVER GRACE
+                </span>
+                <span className="font-display font-semibold text-xs tracking-[0.18em] uppercase text-accent">
+                  CONSTRUCTIONS
                 </span>
               </div>
             </div>
             <p className="text-primary-foreground/80 leading-relaxed">
               Building excellence since 1995. We transform visions into reality with unmatched craftsmanship and dedication to quality.
             </p>
+
             <div className="flex gap-4">
               {[Facebook, Instagram, Linkedin, Twitter].map((Icon, index) => (
                 <a
@@ -89,19 +99,24 @@ export function Footer() {
               <li className="flex gap-3">
                 <MapPin className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
                 <span className="text-primary-foreground/80">
-                  123 Construction Avenue, Building District, NY 10001
+                  3rd Floor, Flamon Complex, Kuriachira, Thrissur-6, Kerala, India
                 </span>
               </li>
               <li className="flex gap-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="tel:+1234567890" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  +1 (234) 567-890
-                </a>
+                <div className="flex flex-col gap-1">
+                  <a href="tel:+919747738919" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                    +91 97477 38919
+                  </a>
+                  <a href="tel:+919633691891" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                    +91 96336 91891
+                  </a>
+                </div>
               </li>
               <li className="flex gap-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-              <a href="mailto:info@evergrace.com" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                  info@evergrace.com
+                <a href="mailto:egcbuild@gmail.com" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  egcbuild@gmail.com
                 </a>
               </li>
               <li className="flex gap-3">

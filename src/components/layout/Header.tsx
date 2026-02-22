@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoImg from "@/assets/Logo.png";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -44,24 +45,31 @@ export function Header() {
         <nav className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 bg-gradient-accent rounded-lg flex items-center justify-center shadow-accent-glow transition-transform duration-300 group-hover:scale-110">
-              <span className="text-accent-foreground font-display font-bold text-lg">EG</span>
+            {/* Full logo in a white pill container */}
+            <div className={cn(
+              "bg-white rounded-xl shadow-md flex-shrink-0 flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg px-2 py-1",
+              isScrolled ? "h-12" : "h-14"
+            )}>
+              <img
+                src={logoImg}
+                alt="EGC Logo"
+                className="h-full w-auto object-contain"
+              />
             </div>
-            <div className="flex flex-col">
+            {/* Company name in Rajdhani */}
+            <div className="flex flex-col leading-none">
               <span className={cn(
-                "font-display font-bold text-xl leading-none transition-colors",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+                "font-display font-bold tracking-wide transition-colors duration-300",
+                isScrolled ? "text-foreground text-lg" : "text-white text-xl"
               )}>
-                Ever Grace
+                EVER GRACE
               </span>
-              <span className={cn(
-                "text-xs tracking-[0.2em] uppercase transition-colors",
-                isScrolled ? "text-muted-foreground" : "text-primary-foreground/70"
-              )}>
-                Construction
+              <span className="font-display font-semibold tracking-[0.18em] uppercase text-xs text-accent">
+                CONSTRUCTIONS
               </span>
             </div>
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-8">
@@ -74,8 +82,8 @@ export function Header() {
                   location.pathname === link.path
                     ? "text-accent"
                     : isScrolled
-                    ? "text-foreground hover:text-accent"
-                    : "text-primary-foreground/90 hover:text-primary-foreground",
+                      ? "text-foreground hover:text-accent"
+                      : "text-primary-foreground/90 hover:text-primary-foreground",
                   "after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-accent after:scale-x-0 after:origin-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-left",
                   location.pathname === link.path && "after:scale-x-100"
                 )}
@@ -88,14 +96,14 @@ export function Header() {
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href="tel:+1234567890"
+              href="tel:+919747738919"
               className={cn(
                 "flex items-center gap-2 text-sm font-medium transition-colors",
                 isScrolled ? "text-foreground" : "text-primary-foreground"
               )}
             >
               <Phone className="w-4 h-4" />
-              <span>+1 (234) 567-890</span>
+              <span>+91 97477 38919</span>
             </a>
             <Button variant="gold" asChild>
               <Link to="/contact">Get a Quote</Link>

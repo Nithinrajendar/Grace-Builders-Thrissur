@@ -2,7 +2,7 @@ import { Layout } from "@/components/layout/Layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageCircle, CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 
@@ -10,22 +10,22 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    details: ["123 Construction Avenue", "Building District, NY 10001"],
+    details: ["3rd Floor, Flamon Complex, Kuriachira", "Thrissur-6, Kerala, India"],
   },
   {
     icon: Phone,
     title: "Call Us",
-    details: ["+1 (234) 567-890", "+1 (234) 567-891"],
+    details: ["+91 97477 38919", "+91 96336 91891"],
   },
   {
     icon: Mail,
     title: "Email Us",
-    details: ["info@evergrace.com", "projects@evergrace.com"],
+    details: ["egcbuild@gmail.com"],
   },
   {
     icon: Clock,
     title: "Working Hours",
-    details: ["Mon - Fri: 8:00 AM - 6:00 PM", "Sat: 9:00 AM - 2:00 PM"],
+    details: ["Mon - Sat: 9:00 AM - 6:00 PM"],
   },
 ];
 
@@ -38,17 +38,39 @@ const Contact = () => {
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [result, setResult] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setResult(null);
 
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success("Message sent successfully! We'll get back to you soon.");
-    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    setIsSubmitting(false);
+    const formEl = e.target as HTMLFormElement;
+    const data = new FormData(formEl);
+    data.append("access_key", "06c93e34-3466-4ccf-8dfc-07f8c7cd218e");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      const json = await response.json();
+
+      if (json.success) {
+        toast.success("Message sent! We'll get back to you soon.");
+        setResult({ type: "success", text: "Your message was sent successfully! We'll be in touch shortly." });
+        formEl.reset();
+        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      } else {
+        toast.error("Something went wrong. Please try again.");
+        setResult({ type: "error", text: json.message || "Submission failed. Please try again." });
+      }
+    } catch {
+      toast.error("Network error. Please check your connection.");
+      setResult({ type: "error", text: "Network error. Please check your connection and try again." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -56,7 +78,7 @@ const Contact = () => {
   };
 
   const openWhatsApp = () => {
-    window.open("https://wa.me/1234567890?text=Hello, I'm interested in your construction services.", "_blank");
+    window.open("https://wa.me/919747738919?text=Hello, I'm interested in your construction services.", "_blank");
   };
 
   return (
@@ -72,7 +94,7 @@ const Contact = () => {
               Let's Build Something Great Together
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed animate-fade-in animation-delay-200">
-              Ready to start your project? Contact us today for a free consultation 
+              Ready to start your project? Contact us today for a free consultation
               and detailed quote. Our team is here to answer all your questions.
             </p>
           </div>
@@ -226,6 +248,19 @@ const Contact = () => {
                     <a href="#" className="text-accent hover:underline">Privacy Policy</a>
                     {" "}and consent to being contacted about your inquiry.
                   </p>
+
+                  {/* Inline result feedback */}
+                  {result && (
+                    <div className={`flex items-start gap-3 p-4 rounded-xl text-sm font-medium ${result.type === "success"
+                        ? "bg-green-50 text-green-700 border border-green-200"
+                        : "bg-red-50 text-red-700 border border-red-200"
+                      }`}>
+                      {result.type === "success"
+                        ? <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                        : <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />}
+                      <span>{result.text}</span>
+                    </div>
+                  )}
 
                   <Button
                     type="submit"
