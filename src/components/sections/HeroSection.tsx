@@ -47,8 +47,8 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-xl text-primary-foreground/80 leading-relaxed mb-10 max-w-2xl animate-fade-in animation-delay-200">
-            For over 28 years, we've been transforming visions into architectural 
-            masterpieces. From residential homes to commercial complexes, we deliver 
+            For over 28 years, we've been transforming visions into architectural
+            masterpieces. From residential homes to commercial complexes, we deliver
             excellence in every project.
           </p>
 
@@ -83,12 +83,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-8 h-12 rounded-full border-2 border-primary-foreground/30 flex justify-center pt-2">
-          <div className="w-1.5 h-3 bg-accent rounded-full animate-pulse" />
-        </div>
-      </div>
+
     </section>
   );
 }
