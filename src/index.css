@@ -1,113 +1,117 @@
+/* ✅ @import MUST be first — before @tailwind directives */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
 @layer base {
   :root {
-    /* Premium Construction Brand Colors - Blue & White */
-    --background: 0 0% 100%;
-    --foreground: 215 25% 15%;
+    /* ─── Blue + Grey Corporate Palette ─── */
+
+    /* Backgrounds */
+    --background: 210 20% 98%;
+    /* near-white with a blue-grey tint */
+    --foreground: 220 30% 12%;
+    /* deep charcoal navy */
 
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 15%;
+    --card-foreground: 220 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 15%;
+    --popover-foreground: 220 30% 12%;
 
-    /* Royal Blue Primary */
-    --primary: 217 91% 45%;
+    /* Deep Corporate Navy Blue */
+    --primary: 220 85% 28%;
     --primary-foreground: 0 0% 100%;
 
-    /* Light Blue Accent */
-    --accent: 199 89% 48%;
+    /* Steel Grey Accent */
+    --accent: 215 25% 52%;
     --accent-foreground: 0 0% 100%;
 
-    /* Secondary - Soft Grey */
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 215 25% 15%;
+    /* Light Blue-Grey Secondary */
+    --secondary: 213 20% 90%;
+    --secondary-foreground: 220 30% 20%;
 
-    --muted: 214 32% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 213 20% 94%;
+    --muted-foreground: 215 15% 48%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 217 91% 45%;
+    --border: 213 20% 88%;
+    --input: 213 20% 88%;
+    --ring: 220 85% 28%;
 
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --blue: 217 91% 45%;
-    --blue-light: 217 91% 55%;
-    --blue-dark: 217 91% 35%;
-    --cyan: 199 89% 48%;
-    --cyan-light: 199 89% 58%;
-    --grey-warm: 214 32% 96%;
-    --grey-cool: 214 32% 91%;
+    --blue: 220 85% 28%;
+    --blue-light: 220 75% 42%;
+    --blue-dark: 220 90% 18%;
+    --grey: 215 20% 52%;
+    --grey-light: 213 20% 90%;
+    --grey-cool: 213 20% 82%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 45%), hsl(217 91% 35%));
-    --gradient-accent: linear-gradient(135deg, hsl(199 89% 48%), hsl(217 91% 45%));
-    --gradient-overlay: linear-gradient(180deg, hsla(217, 91%, 35%, 0.85) 0%, hsla(217, 91%, 45%, 0.6) 100%);
+    /* Gradients — navy to deep blue */
+    --gradient-primary: linear-gradient(135deg, hsl(220 85% 28%), hsl(220 90% 18%));
+    --gradient-accent: linear-gradient(135deg, hsl(215 25% 52%), hsl(220 85% 28%));
+    --gradient-overlay: linear-gradient(180deg, hsla(220, 85%, 18%, 0.88) 0%, hsla(220, 85%, 28%, 0.65) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsla(217, 91%, 45%, 0.08);
-    --shadow-md: 0 4px 20px hsla(217, 91%, 45%, 0.12);
-    --shadow-lg: 0 8px 40px hsla(217, 91%, 45%, 0.16);
-    --shadow-accent: 0 4px 20px hsla(199, 89%, 48%, 0.3);
+    --shadow-sm: 0 2px 8px hsla(220, 40%, 20%, 0.08);
+    --shadow-md: 0 4px 20px hsla(220, 40%, 20%, 0.13);
+    --shadow-lg: 0 8px 40px hsla(220, 40%, 20%, 0.18);
+    --shadow-accent: 0 4px 20px hsla(215, 25%, 52%, 0.28);
 
     /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 210 20% 97%;
+    --sidebar-foreground: 220 30% 20%;
+    --sidebar-primary: 220 85% 28%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 213 20% 92%;
+    --sidebar-accent-foreground: 220 30% 20%;
+    --sidebar-border: 213 20% 88%;
+    --sidebar-ring: 220 75% 42%;
   }
 
   .dark {
-    --background: 217 91% 6%;
-    --foreground: 0 0% 98%;
+    --background: 222 35% 8%;
+    --foreground: 210 20% 96%;
 
-    --card: 217 91% 8%;
-    --card-foreground: 0 0% 98%;
+    --card: 222 35% 11%;
+    --card-foreground: 210 20% 96%;
 
-    --popover: 217 91% 8%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 35% 11%;
+    --popover-foreground: 210 20% 96%;
 
-    --primary: 199 89% 48%;
+    --primary: 220 70% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 217 50% 15%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 220 25% 18%;
+    --secondary-foreground: 210 20% 90%;
 
-    --muted: 217 50% 15%;
-    --muted-foreground: 214 32% 65%;
+    --muted: 220 25% 16%;
+    --muted-foreground: 213 20% 60%;
 
-    --accent: 199 89% 48%;
+    --accent: 215 30% 58%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62% 30%;
+    --destructive: 0 62% 35%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 217 50% 18%;
-    --input: 217 50% 18%;
-    --ring: 199 89% 48%;
+    --border: 220 25% 20%;
+    --input: 220 25% 20%;
+    --ring: 220 70% 55%;
 
-    --sidebar-background: 217 91% 10%;
-    --sidebar-foreground: 214 32% 95.9%;
-    --sidebar-primary: 199 89% 48%;
+    --sidebar-background: 222 35% 10%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 220 70% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217 50% 15.9%;
-    --sidebar-accent-foreground: 214 32% 95.9%;
-    --sidebar-border: 217 50% 15.9%;
-    --sidebar-ring: 199 89% 48%;
+    --sidebar-accent: 220 25% 16%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 25% 18%;
+    --sidebar-ring: 220 70% 55%;
   }
 }
 
@@ -120,7 +124,12 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-display;
   }
 }
@@ -165,11 +174,29 @@
 }
 
 @layer utilities {
+
   /* Animation delays */
-  .animation-delay-100 { animation-delay: 100ms; }
-  .animation-delay-200 { animation-delay: 200ms; }
-  .animation-delay-300 { animation-delay: 300ms; }
-  .animation-delay-400 { animation-delay: 400ms; }
-  .animation-delay-500 { animation-delay: 500ms; }
-  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
 }
