@@ -1,18 +1,13 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, ShieldCheck, Wrench, GraduationCap } from "lucide-react";
+import { ArrowRight, Award, Users, Building2, Clock, ThumbsUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-construction.jpg";
 
-const subStats = [
-  { value: "120+", label: "Projects Completed" },
-  { value: "15+", label: "Expert Engineers" },
-  { value: "100%", label: "Client Satisfaction" },
-];
-
-const trustBadges = [
-  { icon: ShieldCheck, label: "Certified Engineers" },
-  { icon: GraduationCap, label: "Trained Professionals" },
-  { icon: Wrench, label: "Quality Guaranteed" },
+const stats = [
+  { icon: Building2, value: "120+", label: "Projects Completed" },
+  { icon: Users, value: "15+", label: "Experienced Team Members" },
+  { icon: ThumbsUp, value: "20+", label: "Appreciation from Esteemed Clients" },
+  { icon: Clock, value: "15", label: "Years of Experience" },
 ];
 
 export function HeroSection() {
@@ -58,7 +53,7 @@ export function HeroSection() {
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-wrap gap-4 mb-12 animate-fade-in animation-delay-300">
+          <div className="flex flex-wrap gap-4 mb-16 animate-fade-in animation-delay-300">
             <Button variant="hero" size="xl" asChild>
               <Link to="/contact">
                 Start Your Project
@@ -70,51 +65,20 @@ export function HeroSection() {
             </Button>
           </div>
 
-          {/* Stats Panel */}
-          <div className="animate-fade-in animation-delay-400 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden">
-            {/* Big Featured Stat */}
-            <div className="text-center py-8 px-6">
-              <div className="text-7xl md:text-8xl font-display font-bold text-white/20 leading-none mb-1">
-                15+
-              </div>
-              <div className="text-base font-semibold text-primary-foreground/80 tracking-wide uppercase">
-                Years of Construction Excellence
-              </div>
-            </div>
-
-            {/* Sub Stats */}
-            <div className="grid grid-cols-3">
-              {subStats.map((stat) => (
-                <div key={stat.label} className="text-center py-6 px-4">
-                  <div className="text-2xl md:text-3xl font-display font-bold text-accent mb-1">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs text-primary-foreground/60 uppercase tracking-wide">
-                    {stat.label}
-                  </div>
+          {/* Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in animation-delay-400">
+            {stats.map((stat) => (
+              <div
+                key={stat.label}
+                className="bg-primary-foreground/5 backdrop-blur-sm rounded-xl p-4 border border-primary-foreground/10 hover:bg-primary-foreground/10 transition-all duration-300"
+              >
+                <stat.icon className="w-6 h-6 text-accent mb-2" />
+                <div className="text-3xl font-display font-bold text-primary-foreground">
+                  {stat.value}
                 </div>
-              ))}
-            </div>
-
-            {/* Trust Badges */}
-            <div className="px-6 py-4">
-              <p className="text-center text-xs text-primary-foreground/40 uppercase tracking-widest mb-3">
-                Our Team
-              </p>
-              <div className="flex flex-wrap justify-center gap-3">
-                {trustBadges.map((badge) => (
-                  <div
-                    key={badge.label}
-                    className="inline-flex items-center gap-1.5 bg-white/8 border border-white/10 rounded-full px-4 py-1.5"
-                  >
-                    <badge.icon className="w-3.5 h-3.5 text-accent" />
-                    <span className="text-xs text-primary-foreground/70 font-medium">
-                      {badge.label}
-                    </span>
-                  </div>
-                ))}
+                <div className="text-sm text-primary-foreground/70">{stat.label}</div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
