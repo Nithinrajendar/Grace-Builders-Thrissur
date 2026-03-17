@@ -4,10 +4,9 @@ import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-construction.jpg";
 
 const stats = [
-  { icon: Building2, value: "500+", label: "Projects Completed" },
-  { icon: Users, value: "150+", label: "Expert Team Members" },
-  { icon: Award, value: "25+", label: "Industry Awards" },
-  { icon: Clock, value: "28", label: "Years Experience" },
+  { icon: Building2, value: "120+", label: "Projects Completed" },
+  { icon: Users, value: "15+", label: "Expert Team Members" },
+  { icon: Clock, value: "15+", label: "Years Experience" },
 ];
 
 export function HeroSection() {
@@ -47,7 +46,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-xl text-primary-foreground/80 leading-relaxed mb-10 max-w-2xl animate-fade-in animation-delay-200">
-            For over 28 years, we've been transforming visions into architectural
+            For over 15 years, we've been transforming visions into architectural
             masterpieces. From residential homes to commercial complexes, we deliver
             excellence in every project.
           </p>
@@ -66,7 +65,7 @@ export function HeroSection() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in animation-delay-400">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 animate-fade-in animation-delay-400">
             {stats.map((stat, index) => (
               <div
                 key={stat.label}
