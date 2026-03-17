@@ -1,59 +1,40 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Phone, MessageCircle } from "lucide-react";
+import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function CTASection() {
   return (
-    <section className="relative py-28 overflow-hidden bg-primary">
-      {/* Glowing accent orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl pointer-events-none" />
+    <section className="relative py-24 overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-gradient-to-r from-accent via-accent to-gold-light" />
 
-      {/* Subtle grid pattern */}
+      {/* Pattern Overlay */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-10"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M0 0h1v40H0V0zm40 0h-1v40h1V0zM0 0v1h40V0H0zm0 40v-1h40v1H0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230A1A2F' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C%2Fg%3E%3C%2Fsvg%3E")`,
         }}
       />
 
       <div className="container-custom relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-
-          {/* Label */}
-          <span className="inline-block text-accent font-semibold text-sm tracking-widest uppercase mb-5">
-            Let's Work Together
-          </span>
-
-          {/* Heading */}
-          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Ready to Build{" "}
-            <span className="text-accent">Your Vision?</span>
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-accent-foreground mb-6">
+            Ready to Build Your Vision?
           </h2>
-
-          {/* Description */}
-          <p className="text-lg text-white/70 mb-12 max-w-xl mx-auto leading-relaxed">
-            Our certified engineering team is ready to turn your construction
-            dreams into reality — with precision, quality, and care.
+          <p className="text-xl text-accent-foreground/80 mb-10 max-w-2xl mx-auto">
+            Let's discuss your project. Our team of experts is ready to turn your
+            construction dreams into reality with precision and excellence.
           </p>
-
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button
-              size="xl"
-              className="bg-accent hover:bg-accent/90 text-white font-semibold shadow-lg shadow-accent/20 gap-2"
-              asChild
-            >
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button variant="navy" size="xl" asChild>
               <Link to="/contact">
                 Get Free Consultation
                 <ArrowRight className="w-5 h-5" />
               </Link>
             </Button>
-
             <Button
               size="xl"
-              variant="outline"
-              className="border-2 border-white/30 text-white hover:bg-white/10 hover:border-white/50 gap-2 font-semibold"
+              className="bg-white/15 border-2 border-white text-white hover:bg-white/25 gap-2 font-semibold backdrop-blur-sm"
               asChild
             >
               <a href="tel:+919747738919">
@@ -62,13 +43,6 @@ export function CTASection() {
               </a>
             </Button>
           </div>
-
-          {/* WhatsApp hint */}
-          <p className="mt-8 text-white/40 text-sm flex items-center justify-center gap-2">
-            <MessageCircle className="w-4 h-4 text-green-400" />
-            Also reachable on WhatsApp
-          </p>
-
         </div>
       </div>
     </section>
