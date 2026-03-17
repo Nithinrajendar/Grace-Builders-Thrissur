@@ -73,7 +73,7 @@ export function HeroSection() {
           {/* Stats Panel */}
           <div className="animate-fade-in animation-delay-400 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl overflow-hidden">
             {/* Big Featured Stat */}
-            <div className="text-center py-8 px-6 border-b border-white/10">
+            <div className="text-center py-8 px-6">
               <div className="text-7xl md:text-8xl font-display font-bold text-white/20 leading-none mb-1">
                 15+
               </div>
@@ -83,7 +83,7 @@ export function HeroSection() {
             </div>
 
             {/* Sub Stats */}
-            <div className="grid grid-cols-3 divide-x divide-white/10">
+            <div className="grid grid-cols-3">
               {subStats.map((stat) => (
                 <div key={stat.label} className="text-center py-6 px-4">
                   <div className="text-2xl md:text-3xl font-display font-bold text-accent mb-1">
@@ -97,7 +97,7 @@ export function HeroSection() {
             </div>
 
             {/* Trust Badges */}
-            <div className="border-t border-white/10 px-6 py-4">
+            <div className="px-6 py-4">
               <p className="text-center text-xs text-primary-foreground/40 uppercase tracking-widest mb-3">
                 Our Team
               </p>
