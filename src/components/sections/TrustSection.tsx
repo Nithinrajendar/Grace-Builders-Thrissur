@@ -1,4 +1,4 @@
-import { CheckCircle, HardHat, Clock, Star, Users } from "lucide-react";
+import { CheckCircle, HardHat, Clock, Star } from "lucide-react";
 
 const trustIndicators = [
   {
@@ -21,14 +21,6 @@ const trustIndicators = [
     title: "Transparent Pricing",
     description: "No hidden costs, detailed estimates provided upfront",
   },
-];
-
-const strengths = [
-  "Certified Engineers",
-  "Experienced Team",
-  "Client-Focused",
-  "Quality Workmanship",
-  "Timely Delivery",
 ];
 
 export function TrustSection() {
@@ -90,34 +82,18 @@ export function TrustSection() {
               </div>
 
               {/* Mini Stats */}
-              <div className="grid grid-cols-2 gap-4 mb-10">
+              <div className="grid grid-cols-2 gap-6">
                 {[
                   { value: "120+", label: "Projects Completed" },
                   { value: "98%", label: "Client Satisfaction" },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-display font-bold">{stat.value}</div>
+                  <div key={stat.label} className="text-center bg-primary-foreground/5 rounded-2xl py-6">
+                    <div className="text-3xl font-display font-bold text-accent mb-1">{stat.value}</div>
                     <div className="text-sm text-primary-foreground/60">{stat.label}</div>
                   </div>
                 ))}
               </div>
 
-              {/* Our Strengths */}
-              <div>
-                <h4 className="text-sm font-semibold text-primary-foreground/60 uppercase tracking-wider mb-4 text-center">
-                  Our Strengths
-                </h4>
-                <div className="flex flex-wrap justify-center gap-3">
-                  {strengths.map((strength) => (
-                    <span
-                      key={strength}
-                      className="px-4 py-2 bg-primary-foreground/10 rounded-full text-sm font-medium"
-                    >
-                      {strength}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>
