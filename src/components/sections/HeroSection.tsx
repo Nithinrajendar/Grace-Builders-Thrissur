@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, Users, Building2, Clock, ThumbsUp } from "lucide-react";
+import { ArrowRight, Award, Users, Building2, Clock, ThumbsUp, ShieldCheck, GraduationCap, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-construction.jpg";
 
@@ -79,6 +79,30 @@ export function HeroSection() {
                 <div className="text-sm text-primary-foreground/70">{stat.label}</div>
               </div>
             ))}
+          </div>
+
+          {/* Team Badges */}
+          <div className="mt-6 animate-fade-in animation-delay-400">
+            <p className="text-center text-xs text-primary-foreground/40 uppercase tracking-widest mb-3">
+              Our Team
+            </p>
+            <div className="flex flex-wrap justify-center gap-3">
+              {[
+                { icon: ShieldCheck, label: "Certified Engineers" },
+                { icon: GraduationCap, label: "Trained Professionals" },
+                { icon: Wrench, label: "Quality Guaranteed" },
+              ].map((badge) => (
+                <div
+                  key={badge.label}
+                  className="inline-flex items-center gap-2 bg-primary-foreground/5 backdrop-blur-sm border border-primary-foreground/10 rounded-full px-4 py-2"
+                >
+                  <badge.icon className="w-3.5 h-3.5 text-accent" />
+                  <span className="text-xs text-primary-foreground/70 font-medium">
+                    {badge.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
