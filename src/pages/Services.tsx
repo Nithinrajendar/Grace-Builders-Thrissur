@@ -150,12 +150,27 @@ const Services = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-accent">
-        <div className="container-custom text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-accent-foreground mb-6">
+      <section className="relative py-24 overflow-hidden">
+        {/* Background — deep navy to warm charcoal diagonal */}
+        <div className="absolute inset-0" style={{
+          background: "linear-gradient(135deg, hsl(220,90%,12%) 0%, hsl(220,80%,20%) 45%, hsl(28,40%,16%) 100%)"
+        }} />
+        {/* Subtle diagonal line pattern */}
+        <div
+          className="absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage: `repeating-linear-gradient(45deg, #ffffff, #ffffff 1px, transparent 1px, transparent 32px)`,
+          }}
+        />
+        {/* Glow spots */}
+        <div className="absolute top-0 left-1/3 w-80 h-80 rounded-full blur-3xl opacity-20" style={{ background: "hsl(220,85%,40%)" }} />
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 rounded-full blur-3xl opacity-15" style={{ background: "hsl(28,60%,40%)" }} />
+
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-white mb-6">
             Ready to Start Your Project?
           </h2>
-          <p className="text-xl text-accent-foreground/80 mb-10 max-w-2xl mx-auto">
+          <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
             Contact us today for a free consultation and detailed quote.
           </p>
           <Button variant="navy" size="xl" asChild>
