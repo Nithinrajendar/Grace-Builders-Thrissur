@@ -1,0 +1,41 @@
+name: Node.js CI + Deploy
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+
+      # Configure AWS credentials securely
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          region: ap-south-1   # adjust if needed
+
+      # Deploy to S3
+      - name: Sync to S3
+        run: aws s3 sync ./dist/ s3://builder.opsmintech.com/ --delete
+
+      # Invalidate CloudFront cache
+      - name: Invalidate CloudFront
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id EAJXVJS1KH5L8 \
+            --paths "/*"
