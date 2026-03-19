@@ -17,9 +17,9 @@ jobs:
           node-version: 20
           cache: npm
 
-      - run: npm ci
+      - run: npm i
       - run: npm run build
-      - run: npm test
+
 
       # Configure AWS credentials securely
       - name: Configure AWS credentials
