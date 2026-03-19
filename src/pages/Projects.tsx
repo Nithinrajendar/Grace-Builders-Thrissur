@@ -3,12 +3,11 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { projects, statusLabels, type ProjectStatus } from "@/data/projects";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const statusTabs: ProjectStatus[] = ["ongoing", "upcoming", "completed"];
+const statusTabs: ProjectStatus[] = ["ongoing", "upcoming"];
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-
   return (
     <Layout>
       {/* Hero Section */}
@@ -29,16 +28,16 @@ const Projects = () => {
         </div>
       </section>
 
-      {/* Tabs & Grid */}
+      {/* Tabs & Alternating Rows List */}
       <section className="section-padding bg-background">
         <div className="container-custom">
           <Tabs defaultValue="ongoing" className="w-full">
-            <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent h-auto mb-12">
+            <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent h-auto mb-16">
               {statusTabs.map((status) => (
                 <TabsTrigger
                   key={status}
                   value={status}
-                  className="px-6 py-3 rounded-full text-sm font-medium data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-lg bg-secondary text-muted-foreground"
+                  className="px-6 py-3 rounded-full text-sm font-medium data-[state=active]:bg-accent data-[state=active]:text-accent-foreground data-[state=active]:shadow-lg bg-secondary text-muted-foreground transition-all"
                 >
                   {statusLabels[status]}
                 </TabsTrigger>
@@ -54,39 +53,7 @@ const Projects = () => {
                       No {statusLabels[status].toLowerCase()} projects at this time.
                     </p>
                   ) : (
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {filtered.map((project, index) => (
-                        <div
-                          key={project.id}
-                          className="group cursor-pointer animate-scale-in"
-                          style={{ animationDelay: `${index * 100}ms` }}
-                          onClick={() => setSelectedProject(project)}
-                        >
-                          <div className="relative rounded-2xl overflow-hidden shadow-elegant">
-                            <div className="aspect-[4/3] overflow-hidden">
-                              <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                                loading="lazy"
-                              />
-                            </div>
-                            <div className="absolute inset-0 bg-gradient-to-t from-primary via-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                            <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                              <span className="inline-block px-3 py-1 bg-accent text-accent-foreground text-xs font-medium rounded-full mb-3">
-                                {project.category}
-                              </span>
-                              <h3 className="font-display text-xl font-semibold text-primary-foreground mb-1">
-                                {project.title}
-                              </h3>
-                              <p className="text-primary-foreground/80 text-sm">
-                                {project.location}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                    <ProjectCarousel projects={filtered} status={status} />
                   )}
                 </TabsContent>
               );
@@ -94,65 +61,118 @@ const Projects = () => {
           </Tabs>
         </div>
       </section>
+    </Layout>
+  );
+};
 
-      {/* Project Modal */}
-      {selectedProject && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/80 backdrop-blur-sm"
-          onClick={() => setSelectedProject(null)}
+// Extracted Carousel Component to manage state per tab easily
+const ProjectCarousel = ({ projects, status }: { projects: typeof import("@/data/projects").projects, status: ProjectStatus }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextProject = () => {
+    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevProject = () => {
+    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
+  };
+
+  const project = projects[currentIndex];
+
+  if (!project) return null;
+
+  return (
+    <div className="relative w-full max-w-7xl mx-auto flex items-center">
+      {/* Left Arrow */}
+      {projects.length > 1 && (
+        <button
+          onClick={prevProject}
+          className="absolute -left-4 lg:-left-12 z-10 p-3 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent shadow-md transition-all sm:flex hidden"
+          aria-label="Previous project"
         >
-          <div
-            className="bg-card rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-auto shadow-2xl animate-scale-in"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="relative">
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                className="w-full aspect-video object-cover"
-              />
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+      )}
+
+      {/* Main Project Card */}
+      <div
+        key={project.id} // Re-mounts animation when project changes
+        className="w-full flex flex-col gap-10 lg:gap-16 items-center animate-fade-in lg:flex-row px-4 sm:px-12 lg:px-0"
+      >
+        {/* Project Image */}
+        <div className="w-full lg:w-1/2 aspect-[4/3] rounded-2xl overflow-hidden shadow-elegant group relative">
+          <img
+            src={project.image}
+            alt={project.title}
+            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            loading="lazy"
+          />
+          
+          {/* Mobile Arrows Inside Image container */}
+          {projects.length > 1 && (
+            <div className="absolute inset-0 flex items-center justify-between px-4 sm:hidden pointer-events-none">
               <button
-                onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/90 flex items-center justify-center text-foreground hover:bg-background transition-colors"
-                aria-label="Close modal"
+                onClick={(e) => { e.stopPropagation(); prevProject(); }}
+                className="pointer-events-auto p-2 rounded-full bg-background/80 backdrop-blur text-foreground shadow-md hover:bg-accent hover:text-accent-foreground transition-all"
               >
-                ✕
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); nextProject(); }}
+                className="pointer-events-auto p-2 rounded-full bg-background/80 backdrop-blur text-foreground shadow-md hover:bg-accent hover:text-accent-foreground transition-all"
+              >
+                <ChevronRight className="w-5 h-5" />
               </button>
             </div>
-            <div className="p-8">
-              <div className="flex flex-wrap gap-2 mb-4">
-                <span className="inline-block px-3 py-1 bg-accent/10 text-accent text-sm font-medium rounded-full">
-                  {selectedProject.category}
-                </span>
-                <span className="inline-block px-3 py-1 bg-secondary text-muted-foreground text-sm font-medium rounded-full capitalize">
-                  {statusLabels[selectedProject.status]}
-                </span>
-              </div>
-              <h2 className="font-display text-3xl font-bold text-foreground mb-4">
-                {selectedProject.title}
-              </h2>
-              <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                {selectedProject.description}
-              </p>
-              <div className="grid grid-cols-3 gap-6">
-                <div>
-                  <span className="text-muted-foreground text-sm">Location</span>
-                  <p className="font-semibold text-foreground">{selectedProject.location}</p>
-                </div>
-                <div>
-                  <span className="text-muted-foreground text-sm">Year</span>
-                  <p className="font-semibold text-foreground">{selectedProject.year}</p>
-                </div>
-                <div>
-                  <span className="text-muted-foreground text-sm">Project Value</span>
-                  <p className="font-semibold text-foreground">{selectedProject.value}</p>
-                </div>
-              </div>
+          )}
+        </div>
+
+        {/* Project Details */}
+        <div className="w-full lg:w-1/2 flex flex-col justify-center">
+          <div className="flex flex-wrap gap-3 mb-6">
+            <span className="inline-block px-4 py-1.5 bg-accent/10 text-accent text-sm font-semibold tracking-wide rounded-full">
+              {project.category}
+            </span>
+            <span className="inline-block px-4 py-1.5 bg-secondary text-muted-foreground text-sm font-medium tracking-wide rounded-full capitalize">
+              {statusLabels[status]}
+            </span>
+            <span className="inline-block px-4 py-1.5 bg-background border border-border text-muted-foreground text-sm font-medium tracking-wide rounded-full">
+              {currentIndex + 1} of {projects.length}
+            </span>
+          </div>
+          
+          <h3 className="font-display text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            {project.title}
+          </h3>
+          
+          <p className="text-muted-foreground text-lg leading-relaxed mb-10">
+            {project.description}
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 py-6 border-t border-border">
+            <div>
+              <span className="block text-muted-foreground text-sm uppercase tracking-wider mb-2">Location</span>
+              <p className="font-semibold text-foreground">{project.location}</p>
+            </div>
+            <div>
+              <span className="block text-muted-foreground text-sm uppercase tracking-wider mb-2">Year</span>
+              <p className="font-semibold text-foreground">{project.year}</p>
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Right Arrow */}
+      {projects.length > 1 && (
+        <button
+          onClick={nextProject}
+          className="absolute -right-4 lg:-right-12 z-10 p-3 rounded-full bg-background border border-border text-foreground hover:bg-accent hover:text-accent-foreground hover:border-accent shadow-md transition-all sm:flex hidden"
+          aria-label="Next project"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
       )}
-    </Layout>
+    </div>
   );
 };
 

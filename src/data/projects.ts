@@ -1,4 +1,4 @@
-export type ProjectStatus = "ongoing" | "upcoming" | "completed";
+export type ProjectStatus = "ongoing" | "upcoming";
 
 export interface Project {
   id: number;
@@ -35,50 +35,8 @@ export const projects: Project[] = [
     value: "$95M",
     image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&h=600&fit=crop",
   },
-  {
-    id: 3,
-    title: "Metro Central Station",
-    category: "Infrastructure",
-    status: "completed",
-    description: "A modern transit hub serving over 500,000 daily commuters with state-of-the-art facilities, retail spaces, and seamless multi-modal transportation connections.",
-    location: "Chicago, Illinois",
-    year: "2022",
-    value: "$320M",
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&h=600&fit=crop",
-  },
-  {
-    id: 4,
-    title: "The Pinnacle Office Complex",
-    category: "Commercial",
-    status: "completed",
-    description: "LEED Platinum certified corporate headquarters featuring biophilic design, advanced air filtration, and flexible workspaces designed for the future of work.",
-    location: "San Francisco, California",
-    year: "2022",
-    value: "$145M",
-    image: "https://images.unsplash.com/photo-1577495508048-b635879837f1?w=800&h=600&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Riverside Villa Collection",
-    category: "Residential",
-    status: "completed",
-    description: "A collection of 12 contemporary family homes with sustainable features including solar panels, geothermal heating, and rainwater harvesting systems.",
-    location: "Austin, Texas",
-    year: "2023",
-    value: "$48M",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
-  },
-  {
-    id: 6,
-    title: "Heritage Mall Renovation",
-    category: "Renovation",
-    status: "completed",
-    description: "Historic building transformed into modern retail and dining destination while preserving original architectural elements and achieving modern safety standards.",
-    location: "Boston, Massachusetts",
-    year: "2021",
-    value: "$78M",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&h=600&fit=crop",
-  },
+
+
   {
     id: 7,
     title: "Sunrise Medical Center",
@@ -106,5 +64,4 @@ export const projects: Project[] = [
 export const statusLabels: Record<ProjectStatus, string> = {
   ongoing: "Current / Ongoing",
   upcoming: "Upcoming",
-  completed: "Completed",
 };

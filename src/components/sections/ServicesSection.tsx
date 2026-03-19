@@ -27,12 +27,6 @@ const services = [
     description: "Comprehensive planning and consulting services to ensure your project succeeds from concept to completion.",
     link: "/services#planning",
   },
-  {
-    icon: HardHat,
-    title: "Infrastructure Development",
-    description: "Large-scale infrastructure projects delivered with precision, safety, and sustainable practices.",
-    link: "/services#infrastructure",
-  },
 ];
 
 export function ServicesSection() {
@@ -54,15 +48,14 @@ export function ServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {services.map((service, index) => (
             <Link
               key={service.title}
               to={service.link}
               className={cn(
-                "group bg-card rounded-2xl p-8 shadow-elegant hover:shadow-lg transition-all duration-500 hover:-translate-y-1",
-                "animate-fade-in",
-                index === 0 && "lg:col-span-2"
+                "group bg-card rounded-2xl p-8 lg:p-10 shadow-elegant hover:shadow-lg transition-all duration-500 hover:-translate-y-1 h-full",
+                "animate-fade-in"
               )}
               style={{ animationDelay: `${index * 100}ms` }}
             >

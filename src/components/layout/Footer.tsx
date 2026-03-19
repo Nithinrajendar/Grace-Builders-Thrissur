@@ -14,7 +14,6 @@ const services = [
   "Residential Construction",
   "Commercial Buildings",
   "Renovation & Remodeling",
-  "Infrastructure Development",
   "Project Planning",
 ];
 
@@ -51,12 +50,17 @@ export function Footer() {
               </p>
 
               <div className="flex gap-4">
-                {[Facebook, Instagram, Linkedin, Twitter].map((Icon, index) => (
+                {[
+                  { Icon: Facebook, href: "https://www.facebook.com/egcbuild", label: "Facebook" },
+                  { Icon: Instagram, href: "https://www.instagram.com/ever_grace_constructions_/", label: "Instagram" }
+                ].map(({ Icon, href, label }, index) => (
                   <a
                     key={index}
-                    href="#"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center hover:bg-accent hover:text-accent-foreground transition-all duration-300"
-                    aria-label="Social media link"
+                    aria-label={label}
                   >
                     <Icon className="w-5 h-5" />
                   </a>
@@ -72,6 +76,7 @@ export function Footer() {
                   <li key={link.path}>
                     <Link
                       to={link.path}
+                      onClick={() => window.scrollTo(0, 0)}
                       className="text-primary-foreground/80 hover:text-accent transition-colors duration-300"
                     >
                       {link.name}
@@ -123,7 +128,7 @@ export function Footer() {
                 <li className="flex gap-3">
                   <Clock className="w-5 h-5 text-accent flex-shrink-0" />
                   <span className="text-primary-foreground/80">
-                    Mon - Fri: 8:00 AM - 6:00 PM
+                    Mon - Sat: 9:00 AM - 6:00 PM
                   </span>
                 </li>
               </ul>

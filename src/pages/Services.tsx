@@ -16,7 +16,7 @@ const services = [
       "Smart home integration",
       "Energy-efficient building",
     ],
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",
+    image: "/Images/Res06.jpeg",
   },
   {
     id: "commercial",
@@ -30,7 +30,7 @@ const services = [
       "Healthcare facilities",
       "Educational institutions",
     ],
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&h=400&fit=crop",
+    image: "/Images/Commercial001.jpeg",
   },
   {
     id: "renovation",
@@ -44,7 +44,7 @@ const services = [
       "Structural upgrades",
       "ADA compliance updates",
     ],
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&h=400&fit=crop",
+    image: "https://images.unsplash.com/photo-1581094722058-944e83c07653?w=600&h=400&fit=crop",
   },
   {
     id: "planning",
@@ -59,20 +59,6 @@ const services = [
       "Project scheduling",
     ],
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-  },
-  {
-    id: "infrastructure",
-    icon: HardHat,
-    title: "Infrastructure Development",
-    description: "We deliver large-scale infrastructure projects with precision and sustainability. From transportation hubs to utility systems, we build the foundations of modern communities.",
-    features: [
-      "Transportation infrastructure",
-      "Utility systems",
-      "Public facilities",
-      "Industrial developments",
-      "Environmental projects",
-    ],
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&h=400&fit=crop",
   },
 ];
 

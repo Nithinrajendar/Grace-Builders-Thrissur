@@ -44,7 +44,7 @@ export function Header() {
       <div className="container-custom">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <Link to="/" onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 group">
             {/* Full logo in a white pill container */}
             <div className={cn(
               "bg-white rounded-xl shadow-md flex-shrink-0 flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-lg px-2 py-1",
@@ -77,6 +77,7 @@ export function Header() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={() => window.scrollTo(0, 0)}
                 className={cn(
                   "relative text-sm font-medium transition-colors duration-300 py-2",
                   location.pathname === link.path
@@ -106,7 +107,7 @@ export function Header() {
               <span>+91 97477 38919</span>
             </a>
             <Button variant="gold" asChild>
-              <Link to="/contact">Get a Quote</Link>
+              <Link to="/contact" onClick={() => window.scrollTo(0, 0)}>Get a Quote</Link>
             </Button>
           </div>
 
@@ -135,6 +136,10 @@ export function Header() {
               <Link
                 key={link.path}
                 to={link.path}
+                onClick={() => {
+                  window.scrollTo(0, 0);
+                  setIsMobileMenuOpen(false);
+                }}
                 className={cn(
                   "text-lg font-medium py-2 transition-colors",
                   location.pathname === link.path
@@ -147,7 +152,10 @@ export function Header() {
             ))}
             <div className="pt-4 border-t border-border">
               <Button variant="gold" className="w-full" asChild>
-                <Link to="/contact">Get a Quote</Link>
+                <Link to="/contact" onClick={() => {
+                  window.scrollTo(0, 0);
+                  setIsMobileMenuOpen(false);
+                }}>Get a Quote</Link>
               </Button>
             </div>
           </div>

@@ -25,12 +25,12 @@ const values = [
 ];
 
 const timeline = [
-  { year: "1995", title: "Company Founded", description: "Started as a small family business with a vision for excellence." },
-  { year: "2002", title: "First Major Project", description: "Completed our first $10M commercial development." },
-  { year: "2010", title: "Regional Expansion", description: "Expanded operations to cover the entire East Coast." },
-  { year: "2015", title: "500 Projects Milestone", description: "Celebrated completing our 500th construction project." },
-  { year: "2020", title: "Sustainability Focus", description: "Launched our green building initiative with LEED certification." },
-  { year: "2024", title: "Industry Leader", description: "Recognized as a top-10 construction firm in the region." },
+  { year: "2011", title: "Company Founded", description: "Started as a family-driven construction firm with a vision for quality and excellence." },
+  { year: "2012", title: "First Major Project", description: "Successfully completed our first major commercial project, marking a strong beginning." },
+  { year: "2016", title: "Regional Expansion", description: "Expanded our services across key regions of Kerala, enabling us to serve a wider client base." },
+  { year: "2022", title: "100 Projects Milestone", description: "Achieved the milestone of completing over 100 construction projects across various sectors." },
+  { year: "2024", title: "Sustainability Focus", description: "Adopted eco-friendly construction practices to promote energy efficiency and responsible building." },
+  { year: "2026", title: "Growing Recognition", description: "Continuing to strengthen our reputation as a trusted construction partner in the region." },
 ];
 
 const team = [
@@ -70,8 +70,8 @@ const About = () => {
               Building Excellence Since 1995
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed animate-fade-in animation-delay-200">
-              From humble beginnings to industry leadership, our journey has been 
-              defined by an unwavering commitment to quality, innovation, and 
+              From humble beginnings to industry leadership, our journey has been
+              defined by an unwavering commitment to quality, innovation, and
               client satisfaction.
             </p>
           </div>
@@ -88,9 +88,9 @@ const About = () => {
               </div>
               <h2 className="font-display text-2xl font-bold text-foreground mb-4">Our Mission</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To deliver exceptional construction services that exceed expectations, 
-                while maintaining the highest standards of safety, sustainability, and 
-                craftsmanship. We build not just structures, but lasting relationships 
+                To deliver exceptional construction services that exceed expectations,
+                while maintaining the highest standards of safety, sustainability, and
+                craftsmanship. We build not just structures, but lasting relationships
                 with our clients and communities.
               </p>
             </div>
@@ -101,8 +101,8 @@ const About = () => {
               </div>
               <h2 className="font-display text-2xl font-bold text-foreground mb-4">Our Vision</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To be the most trusted name in construction, known for transforming 
-                visions into reality with innovation, integrity, and excellence. We 
+                To be the most trusted name in construction, known for transforming
+                visions into reality with innovation, integrity, and excellence. We
                 aspire to shape skylines and communities for generations to come.
               </p>
             </div>
@@ -162,9 +162,8 @@ const About = () => {
               {timeline.map((item, index) => (
                 <div
                   key={item.year}
-                  className={`flex items-center gap-8 animate-fade-in ${
-                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  }`}
+                  className={`flex items-center gap-8 animate-fade-in ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                    }`}
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className={`flex-1 ${index % 2 === 0 ? "lg:text-right" : "lg:text-left"}`}>

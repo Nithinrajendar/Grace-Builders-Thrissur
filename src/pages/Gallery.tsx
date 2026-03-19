@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Layout } from "@/components/layout/Layout";
 import { galleryImages, galleryCategories, type GalleryImage } from "@/data/gallery";
 import { cn } from "@/lib/utils";
@@ -7,11 +7,34 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState("All");
   const [lightboxImage, setLightboxImage] = useState<GalleryImage | null>(null);
+  const [gridMaxHeight, setGridMaxHeight] = useState<number | undefined>(undefined);
+  const gridRef = useRef<HTMLDivElement>(null);
 
   const filtered =
     activeCategory === "All"
       ? galleryImages
       : galleryImages.filter((img) => img.category === activeCategory);
+
+  const calculateMaxHeight = useCallback(() => {
+    if (gridRef.current) {
+      const firstItem = gridRef.current.querySelector<HTMLElement>(":scope > div");
+      if (firstItem) {
+        const itemHeight = firstItem.getBoundingClientRect().height;
+        const gap = 20; // gap-5 = 1.25rem = 20px
+        const height = 3 * itemHeight + 2 * gap;
+        setGridMaxHeight(height);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(calculateMaxHeight, 150);
+    window.addEventListener("resize", calculateMaxHeight);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("resize", calculateMaxHeight);
+    };
+  }, [filtered, calculateMaxHeight]);
 
   return (
     <Layout>
@@ -49,13 +72,17 @@ const Gallery = () => {
             ))}
           </div>
 
-          {/* Uniform Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {/* Uniform Grid — strictly 3 rows visible, scroll for more */}
+          <div
+            ref={gridRef}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 overflow-y-auto pr-2 scroll-smooth"
+            style={{ maxHeight: gridMaxHeight ? `${gridMaxHeight}px` : "60vh", scrollbarWidth: "thin" }}
+          >
             {filtered.map((image, index) => (
               <div
                 key={image.id}
                 className="group cursor-pointer overflow-hidden rounded-2xl shadow-elegant animate-scale-in"
-                style={{ animationDelay: `${index * 80}ms` }}
+                style={{ animationDelay: `${Math.min(index, 11) * 80}ms` }}
                 onClick={() => setLightboxImage(image)}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
@@ -77,6 +104,12 @@ const Gallery = () => {
               </div>
             ))}
           </div>
+
+          {filtered.length > 12 && (
+            <p className="text-center text-muted-foreground mt-4 text-sm animate-pulse">
+              ↓ Scroll down to see more images ↓
+            </p>
+          )}
 
           {filtered.length === 0 && (
             <p className="text-center text-muted-foreground py-12 text-lg">
