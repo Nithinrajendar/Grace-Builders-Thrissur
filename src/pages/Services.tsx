@@ -44,7 +44,7 @@ const services = [
       "Structural upgrades",
       "ADA compliance updates",
     ],
-    image: "https://images.unsplash.com/photo-1581094722058-944e83c07653?w=600&h=400&fit=crop",
+    image: "/Images/reno0001.jpeg",
   },
   {
     id: "planning",
