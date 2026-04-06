@@ -186,8 +186,10 @@ const About = () => {
         </div>
       </section>
 
-      {/* Team */}
-      <section className="section-padding bg-primary">
+      {false && (
+        <>
+          {/* Team */}
+          <section className="section-padding bg-primary">
         <div className="container-custom">
           <div className="text-center max-w-2xl mx-auto mb-16">
             <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4">
@@ -221,7 +223,9 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+          </section>
+        </>
+      )}
     </Layout>
   );
 };

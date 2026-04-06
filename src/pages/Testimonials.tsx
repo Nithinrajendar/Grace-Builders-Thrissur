@@ -1,6 +1,6 @@
 import { Layout } from "@/components/layout/Layout";
-import { Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
-import { useState } from "react";
+import { Star, ChevronLeft, ChevronRight, Quote, Play, Pause } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -63,6 +63,58 @@ const testimonials = [
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [duration, setDuration] = useState(0);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const playerRef = useRef<any>(null);
+
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://player.vimeo.com/api/player.js";
+    script.async = true;
+    script.onload = () => {
+      if (iframeRef.current && (window as any).Vimeo) {
+        playerRef.current = new (window as any).Vimeo.Player(iframeRef.current);
+        playerRef.current.on('play', () => setIsPlaying(true));
+        playerRef.current.on('pause', () => setIsPlaying(false));
+        playerRef.current.on('timeupdate', (data: any) => {
+          setProgress(data.percent * 100);
+        });
+        playerRef.current.getDuration().then((d: number) => {
+          setDuration(d);
+        });
+      }
+    };
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+      if (playerRef.current && playerRef.current.destroy) {
+        playerRef.current.destroy().catch(() => {});
+      }
+    };
+  }, []);
+
+  const togglePlay = () => {
+    if (playerRef.current) {
+      if (isPlaying) {
+        playerRef.current.pause();
+      } else {
+        playerRef.current.play();
+      }
+    }
+  };
+
+  const handleSeek = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
+    if (!playerRef.current || duration === 0) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = Math.max(0, Math.min(e.clientX - rect.left, rect.width));
+    const percent = x / rect.width;
+    setProgress(percent * 100);
+    playerRef.current.setCurrentTime(percent * duration);
+  };
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
@@ -92,8 +144,75 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Featured Testimonial Carousel */}
-      <section className="section-padding bg-secondary">
+      {/* Featured Video */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto text-center mb-12">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Client Experience
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Watch what our clients have to say about working with Ever Grace Construction.
+            </p>
+          </div>
+          <div 
+            className="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-elegant relative group"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+              <iframe
+                ref={iframeRef}
+                src="https://player.vimeo.com/video/1180415697?controls=0&title=0&byline=0&portrait=0"
+                style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", pointerEvents: "none" }}
+                frameBorder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                title="Client Testimonial Video"
+              ></iframe>
+              
+              {/* Overlay for clicking */}
+              <div 
+                className="absolute inset-0 cursor-pointer flex items-center justify-center transition-all duration-300 rounded-lg overflow-hidden"
+                style={{ backgroundColor: isHovered && isPlaying ? "rgba(0,0,0,0.2)" : !isPlaying ? "rgba(0,0,0,0.4)" : "transparent" }}
+                onClick={togglePlay}
+              >
+                <div 
+                  className={`w-20 h-20 bg-accent rounded-full flex items-center justify-center text-accent-foreground shadow-lg transform transition-all duration-300 ${
+                    isPlaying && !isHovered ? "opacity-0 scale-90" : "opacity-100 scale-100 hover:scale-110"
+                  }`}
+                >
+                  {isPlaying ? (
+                    <Pause className="w-8 h-8 pointer-events-none fill-current" />
+                  ) : (
+                    <Play className="w-8 h-8 ml-1 pointer-events-none fill-current" />
+                  )}
+                </div>
+
+                {/* Scroller / Progress Bar */}
+                <div 
+                  className={`absolute bottom-0 left-0 right-0 py-2 px-1 transition-opacity duration-300 z-10 ${isHovered || !isPlaying ? 'opacity-100' : 'opacity-0'}`}
+                  onClick={handleSeek}
+                >
+                  <div className="h-1.5 md:h-2 bg-white/30 rounded-full overflow-visible relative hover:h-2 md:hover:h-2.5 transition-all duration-200">
+                    <div 
+                      className="absolute top-0 bottom-0 left-0 bg-accent rounded-full transition-all duration-100 ease-linear"
+                      style={{ width: `${progress}%` }}
+                    >
+                      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full opacity-0 group-hover:opacity-100 transform translate-x-1/2 shadow-sm transition-opacity duration-200"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {false && (
+        <>
+          {/* Featured Testimonial Carousel */}
+          <section className="section-padding bg-secondary">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <div className="relative bg-card rounded-3xl p-8 md:p-12 shadow-lg">
@@ -211,6 +330,9 @@ const Testimonials = () => {
           </div>
         </div>
       </section>
+
+        </>
+      )}
 
       {/* CTA */}
       <section className="relative py-24 overflow-hidden">
