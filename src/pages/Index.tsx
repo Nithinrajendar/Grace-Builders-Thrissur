@@ -10,8 +10,8 @@ const Index = () => {
   return (
     <Layout>
       <Helmet>
-        <title>Ever Grace Constructions | Premium Building & Construction Services in Thrissur, Kerala</title>
-        <meta name="description" content="Ever Grace Constructions – Trusted construction company in Thrissur, Kerala. Specializing in residential, commercial, renovation, and interior projects. Call +91 97477 38919 for a free quote." />
+        <title>Ever Grace Constructions | Premium Construction Services across Kerala</title>
+        <meta name="description" content="Ever Grace Constructions – Trusted construction company serving Thrissur, Palakkad, and across Kerala. Specializing in residential, commercial, renovation, and interior projects. Call +91 97477 38919 for a free quote." />
       </Helmet>
       <HeroSection />
       <ServicesSection />

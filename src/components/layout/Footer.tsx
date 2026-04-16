@@ -48,6 +48,13 @@ export function Footer() {
               <p className="text-primary-foreground/80 leading-relaxed">
                 Building excellence since 2011. We transform visions into reality with unmatched craftsmanship and dedication to quality.
               </p>
+              
+              <div className="pt-2">
+                <span className="text-accent font-semibold block mb-1 text-sm">Areas We Serve:</span>
+                <span className="text-sm text-primary-foreground/70">
+                  Thrissur, Palakkad, Ernakulam, and all across Kerala.
+                </span>
+              </div>
 
               <div className="flex gap-4">
                 {[

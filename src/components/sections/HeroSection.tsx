@@ -23,7 +23,7 @@ export function HeroSection() {
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Residential & Commercial construction project by Ever Grace Constructions in Thrissur, Kerala"
+          alt="Residential & Commercial construction project by Ever Grace Constructions in Thrissur, Palakkad, and Kerala"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/60" />
@@ -46,7 +46,7 @@ export function HeroSection() {
 
           {/* SEO Headline */}
           <h1 className="text-lg md:text-xl text-primary-foreground/90 font-medium mb-4 animate-fade-in animation-delay-100">
-            Premium Construction Company in <span className="text-accent">Thrissur</span>
+            Premium Construction Company in <span className="text-accent">Kerala</span>
           </h1>
 
           {/* Main Visual Hook */}
