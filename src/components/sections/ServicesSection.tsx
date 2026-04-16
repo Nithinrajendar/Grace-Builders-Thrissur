@@ -31,7 +31,7 @@ const services = [
 
 export function ServicesSection() {
   return (
-    <section className="section-padding bg-secondary">
+    <section className="pt-16 pb-16 min-h-0 bg-secondary">
       <div className="container-custom">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">

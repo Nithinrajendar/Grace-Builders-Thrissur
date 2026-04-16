@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -161,8 +162,13 @@ const Contact = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Contact Us | Get a Free Quote – Ever Grace Constructions Thrissur, Kerala</title>
+        <meta name="description" content="Contact Ever Grace Constructions for your construction project in Thrissur, Kerala. Call +91 97477 38919, WhatsApp us, or fill out our form for a free consultation and quote." />
+      </Helmet>
+
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-primary">
+      <section className="pt-32 pb-12 md:pb-16 bg-primary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4 animate-fade-in">
@@ -180,7 +186,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="section-padding bg-background">
+      <section className="pt-12 md:pt-16 pb-20 md:pb-28 lg:pb-32 bg-background">
         <div className="container-custom">
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Info */}

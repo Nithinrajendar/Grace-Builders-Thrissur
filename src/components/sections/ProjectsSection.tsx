@@ -6,17 +6,15 @@ import { cn } from "@/lib/utils";
 
 export function ProjectsSection() {
   const ongoingProjects = projects.filter((p) => p.status === "ongoing").slice(0, 3);
-  const upcomingProjects = projects.filter((p) => p.status === "upcoming").slice(0, 3);
   const completedProjects = projects.filter((p) => p.status === "completed").slice(0, 3);
 
   const sections = [
-    { label: "Current / Ongoing Projects", items: ongoingProjects },
-    { label: "Upcoming Projects", items: upcomingProjects },
     { label: "Completed Projects", items: completedProjects },
+    { label: "Current / Ongoing Projects", items: ongoingProjects },
   ];
 
   return (
-    <section className="section-padding bg-background">
+    <section className="pt-16 pb-20 md:pb-28 bg-background">
       <div className="container-custom">
         {/* Section Header */}
         <div className="max-w-2xl mb-12">
@@ -27,7 +25,7 @@ export function ProjectsSection() {
             Featured Projects
           </h2>
           <p className="text-muted-foreground text-lg">
-            Explore our diverse portfolio of ongoing, upcoming, and completed projects.
+            Explore our diverse portfolio of ongoing and completed projects.
           </p>
         </div>
 

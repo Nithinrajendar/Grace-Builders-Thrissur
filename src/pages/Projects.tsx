@@ -1,17 +1,23 @@
 import { Layout } from "@/components/layout/Layout";
+import { Helmet } from "react-helmet-async";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { projects, statusLabels, type ProjectStatus } from "@/data/projects";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-const statusTabs: ProjectStatus[] = ["ongoing", "upcoming"];
+const statusTabs: ProjectStatus[] = ["completed", "ongoing"];
 
 const Projects = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Our Projects | Residential & Commercial Construction in Thrissur – Ever Grace Constructions</title>
+        <meta name="description" content="Explore completed and ongoing construction projects by Ever Grace Constructions in Thrissur, Kerala. Residential villas, commercial buildings, renovations, and interior work." />
+      </Helmet>
+
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-primary">
+      <section className="pt-32 pb-12 md:pb-16 bg-primary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4 animate-fade-in">
@@ -21,17 +27,17 @@ const Projects = () => {
               Projects That Define Excellence
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed animate-fade-in animation-delay-200">
-              Explore our diverse portfolio spanning current, upcoming, and completed
-              developments across the nation.
+              Explore our diverse portfolio of completed and ongoing
+              construction projects across Thrissur and Kerala.
             </p>
           </div>
         </div>
       </section>
 
       {/* Tabs & Alternating Rows List */}
-      <section className="section-padding bg-background">
+      <section className="pt-12 md:pt-16 pb-20 md:pb-28 lg:pb-32 bg-background">
         <div className="container-custom">
-          <Tabs defaultValue="ongoing" className="w-full">
+          <Tabs defaultValue="completed" className="w-full">
             <TabsList className="flex flex-wrap justify-center gap-2 bg-transparent h-auto mb-16">
               {statusTabs.map((status) => (
                 <TabsTrigger

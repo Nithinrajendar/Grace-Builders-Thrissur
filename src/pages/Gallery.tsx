@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import { Layout } from "@/components/layout/Layout";
+import { Helmet } from "react-helmet-async";
 import { galleryImages, galleryCategories, type GalleryImage } from "@/data/gallery";
 import { cn } from "@/lib/utils";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
@@ -38,8 +39,13 @@ const Gallery = () => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>Project Gallery | Construction & Interior Photos – Ever Grace Constructions Thrissur</title>
+        <meta name="description" content="Browse our gallery of completed construction projects in Thrissur, Kerala. View residential homes, commercial buildings, interior design, and renovation work by Ever Grace Constructions." />
+      </Helmet>
+
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 bg-primary">
+      <section className="relative pt-32 pb-12 md:pb-16 bg-primary">
         <div className="absolute inset-0 bg-gradient-to-br from-primary to-primary/80" />
         <div className="container-custom relative z-10 text-center">
           <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-4">
@@ -52,7 +58,7 @@ const Gallery = () => {
       </section>
 
       {/* Filter + Grid */}
-      <section className="section-padding bg-background">
+      <section className="pt-12 md:pt-16 pb-20 md:pb-28 lg:pb-32 bg-background">
         <div className="container-custom">
           {/* Category Filters */}
           <div className="flex flex-wrap justify-center gap-3 mb-12">

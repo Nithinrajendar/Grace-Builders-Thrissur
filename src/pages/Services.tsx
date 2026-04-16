@@ -1,4 +1,5 @@
 import { Layout } from "@/components/layout/Layout";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Building2, Home, Wrench, FileText, HardHat, ArrowRight, CheckCircle } from "lucide-react";
@@ -65,8 +66,13 @@ const services = [
 const Services = () => {
   return (
     <Layout>
+      <Helmet>
+        <title>Our Services | Construction, Renovation & Interior Design – Ever Grace Constructions Thrissur</title>
+        <meta name="description" content="Explore our construction services in Thrissur, Kerala – residential homes, commercial buildings, renovation & remodeling, and project planning. Get a free quote today!" />
+      </Helmet>
+
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-primary">
+      <section className="pt-32 pb-12 md:pb-16 bg-primary">
         <div className="container-custom">
           <div className="max-w-3xl">
             <span className="inline-block text-accent font-semibold text-sm tracking-wider uppercase mb-4 animate-fade-in">
@@ -84,7 +90,7 @@ const Services = () => {
       </section>
 
       {/* Services List */}
-      <section className="section-padding bg-background">
+      <section className="pt-16 pb-20 md:pb-28 lg:pb-32 bg-background">
         <div className="container-custom space-y-24">
           {services.map((service, index) => (
             <div

@@ -22,10 +22,10 @@ export function Footer() {
     <>
       <footer className="bg-primary text-primary-foreground">
         {/* Main Footer */}
-        <div className="container-custom section-padding">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="container-custom py-12 md:py-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Company Info */}
-            <div className="space-y-6">
+            <div className="lg:col-span-4 space-y-6">
               <div className="flex items-center gap-3">
                 {/* Full logo in white container */}
                 <div className="bg-white rounded-xl shadow-md flex-shrink-0 flex items-center justify-center px-2 py-1 h-14">
@@ -46,7 +46,7 @@ export function Footer() {
                 </div>
               </div>
               <p className="text-primary-foreground/80 leading-relaxed">
-                Building excellence since 1995. We transform visions into reality with unmatched craftsmanship and dedication to quality.
+                Building excellence since 2011. We transform visions into reality with unmatched craftsmanship and dedication to quality.
               </p>
 
               <div className="flex gap-4">
@@ -69,7 +69,7 @@ export function Footer() {
             </div>
 
             {/* Quick Links */}
-            <div>
+            <div className="lg:col-span-2 lg:justify-self-center">
               <h4 className="font-display text-lg font-semibold mb-6">Quick Links</h4>
               <ul className="space-y-3">
                 {quickLinks.map((link) => (
@@ -87,7 +87,7 @@ export function Footer() {
             </div>
 
             {/* Services */}
-            <div>
+            <div className="lg:col-span-3 lg:justify-self-center">
               <h4 className="font-display text-lg font-semibold mb-6">Our Services</h4>
               <ul className="space-y-3">
                 {services.map((service) => (
@@ -99,7 +99,7 @@ export function Footer() {
             </div>
 
             {/* Contact Info */}
-            <div>
+            <div className="lg:col-span-3">
               <h4 className="font-display text-lg font-semibold mb-6">Contact Us</h4>
               <ul className="space-y-4">
                 <li className="flex gap-3">
