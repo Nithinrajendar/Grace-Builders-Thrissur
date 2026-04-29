@@ -26,7 +26,7 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2011", title: "Company Founded", description: "Started as a family-driven construction firm in Thrissur with a vision for quality and excellence." },
+  { year: "2006", title: "Company Founded", description: "Started as a family-driven construction firm in Thrissur with a vision for quality and excellence." },
   { year: "2012", title: "First Major Project", description: "Successfully completed our first major commercial project in Thrissur, marking a strong beginning." },
   { year: "2016", title: "Regional Expansion", description: "Expanded our services across key regions of Kerala, serving a wider client base." },
   { year: "2022", title: "100 Projects Milestone", description: "Achieved the milestone of completing over 100 construction projects across various sectors." },
@@ -38,8 +38,8 @@ const About = () => {
   return (
     <Layout>
       <Helmet>
-        <title>About Us | Ever Grace Constructions – Trusted Builders in Thrissur Since 2011</title>
-        <meta name="description" content="Learn about Ever Grace Constructions – a trusted construction company in Thrissur, Kerala since 2011. 15+ years of excellence in residential, commercial, and renovation projects." />
+        <title>About Us | Ever Grace Constructions – Trusted Builders in Thrissur Since 2006</title>
+        <meta name="description" content="Learn about Ever Grace Constructions – a trusted construction company in Thrissur, Kerala since 2006. 20 years of excellence in residential, commercial, and renovation projects." />
       </Helmet>
 
       {/* Hero Section */}
@@ -50,7 +50,7 @@ const About = () => {
               About Ever Grace
             </span>
             <h1 className="font-display text-5xl md:text-6xl font-bold text-primary-foreground mb-6 animate-fade-in animation-delay-100">
-              Building Excellence Since 2011
+              Building Excellence Since 2006
             </h1>
             <p className="text-xl text-primary-foreground/80 leading-relaxed animate-fade-in animation-delay-200">
               From humble beginnings in Thrissur to becoming a trusted name across Kerala,

@@ -58,7 +58,7 @@ export function HeroSection() {
 
           {/* Subheadline */}
           <p className="text-xl text-primary-foreground/80 leading-relaxed mb-10 max-w-2xl animate-fade-in animation-delay-200">
-            For over 15 years, we've been transforming visions into architectural
+            For over 20 years, we've been transforming visions into architectural
             masterpieces. From residential homes to commercial complexes, we deliver
             excellence in every project.
           </p>
@@ -82,7 +82,7 @@ export function HeroSection() {
             {/* Big Featured Stat */}
             <div className="text-center pt-8 pb-6 px-6">
               <div className="text-7xl md:text-8xl font-display font-bold text-white/20 leading-none mb-2">
-                15+
+                20+
               </div>
               <div className="text-sm font-semibold text-primary-foreground/70 tracking-widest uppercase">
                 Years of Construction Excellence

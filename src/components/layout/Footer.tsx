@@ -11,8 +11,8 @@ const quickLinks = [
 ];
 
 const services = [
-  "Residential Construction",
   "Commercial Buildings",
+  "Residential Construction",
   "Renovation & Remodeling",
   "Project Planning",
 ];
@@ -46,9 +46,9 @@ export function Footer() {
                 </div>
               </div>
               <p className="text-primary-foreground/80 leading-relaxed">
-                Building excellence since 2011. We transform visions into reality with unmatched craftsmanship and dedication to quality.
+                Building excellence since 2006. We transform visions into reality with unmatched craftsmanship and dedication to quality.
               </p>
-              
+
               <div className="pt-2">
                 <span className="text-accent font-semibold block mb-1 text-sm">Areas We Serve:</span>
                 <span className="text-sm text-primary-foreground/70">
@@ -135,7 +135,7 @@ export function Footer() {
                 <li className="flex gap-3">
                   <Clock className="w-5 h-5 text-accent flex-shrink-0" />
                   <span className="text-primary-foreground/80">
-                    Mon - Sat: 9:00 AM - 6:00 PM
+                    Mon - Sat: 9:00 AM - 5:30 PM
                   </span>
                 </li>
               </ul>

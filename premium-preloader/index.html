@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Construction Preloader | Grace Builders</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Premium Preloader -->
+    <div id="preloader" class="preloader">
+        <div class="preloader-container">
+            <!-- Left Branding Side (40%) -->
+            <div class="side-left">
+                <div class="branding-content">
+                    <div class="logo-wrapper">
+                        <img src="assets/logo.png" alt="Grace Builders Logo" id="preloader-logo" class="preloader-logo">
+                        <div class="logo-glow"></div>
+                    </div>
+                    <h2 class="tagline">Building Your Dream Spaces</h2>
+                    
+                    <div class="loading-status">
+                        <p class="loading-text">Constructing Excellence<span class="dots">...</span></p>
+                        <div class="progress-container">
+                            <div class="progress-bar" id="progress-bar"></div>
+                        </div>
+                        <span class="percentage" id="percentage">0%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Visual Side (60%) -->
+            <div class="side-right">
+                <div class="slider-container" id="slider">
+                    <!-- Images will be injected/controlled via JS or CSS -->
+                    <div class="slide active" style="background-image: url('assets/project1.png');"></div>
+                    <div class="slide" style="background-image: url('assets/project2.png');"></div>
+                    <div class="slide" style="background-image: url('assets/project3.png');"></div>
+                    <div class="overlay"></div>
+                </div>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Website Content (Visible after preloader) -->
+    <main class="main-content">
+        <section class="hero">
+            <h1>Welcome to Grace Builders</h1>
+            <p>Premium Architectural Excellence</p>
+            <button class="btn-primary">Explore Projects</button>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

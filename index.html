@@ -21,6 +21,16 @@
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="theme-color" content="#1a1a2e" />
 
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R97H9JN37V"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-R97H9JN37V');
+  </script>
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Ever Grace Constructions | Premium Construction Services across Kerala" />
@@ -111,10 +121,864 @@
       ]
     }
   </script>
+  <!-- Premium Fonts for Preloader -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --pre-bg: #ffffff;
+      --pre-gold: #D4AF37;
+      --pre-blue: #0A192F;
+      --pre-text: #1A1A1A;
+      --pre-muted: #666666;
+      --pre-overlay: rgba(10, 25, 47, 0.25);
+    }
+
+    .preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: 10000;
+      background-color: var(--pre-bg);
+      transition: transform 1.2s cubic-bezier(0.85, 0, 0.15, 1), opacity 1s ease;
+      font-family: 'Outfit', sans-serif;
+      overflow: hidden;
+    }
+
+    .preloader-container {
+      display: flex;
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(to bottom, rgba(10, 25, 47, 0.08) 0%, #ffffff 20%, #ffffff 80%, rgba(10, 25, 47, 0.08) 100%);
+    }
+
+    .side-left {
+      width: 40%;
+      height: 100%;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      animation: preFadeIn 1.5s ease forwards;
+    }
+
+    .branding-content {
+      text-align: center;
+      max-width: 400px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .pre-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--pre-blue);
+      margin-bottom: 3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .logo-wrapper {
+      position: relative;
+      margin-bottom: 2rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 250px;
+      height: 250px;
+    }
+
+    .preloader-logo {
+      width: 140px;
+      height: auto;
+      position: relative;
+      z-index: 10;
+      /* Makes any white background perfectly transparent, removing sharp square edges */
+      mix-blend-mode: multiply;
+    }
+
+    .luxury-compass {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 320px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .compass-ring-1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid rgba(180, 140, 30, 0.4);
+      border-radius: 50%;
+      animation: rotateCompass 30s linear infinite;
+    }
+
+    .compass-ring-1::after {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      right: 15px;
+      bottom: 15px;
+      border: 2px dashed rgba(180, 140, 30, 0.6);
+      border-radius: 50%;
+    }
+
+    .compass-ring-2 {
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      right: 40px;
+      bottom: 40px;
+      border: 3px dotted rgba(180, 140, 30, 0.7);
+      border-radius: 50%;
+      animation: rotateCompassReverse 20s linear infinite;
+    }
+
+    .compass-center-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 160px;
+      height: 160px;
+      background: radial-gradient(circle, rgba(180, 140, 30, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulseCompass 3s ease-in-out infinite alternate;
+    }
+
+    .compass-pulse-ring {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+      border: 2px solid rgba(180, 140, 30, 0.7);
+      border-radius: 50%;
+      animation: pulseRipple 4s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+
+    .compass-sweep {
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, transparent 70%, rgba(180, 140, 30, 0.4) 100%);
+      animation: rotateCompass 6s linear infinite;
+      -webkit-mask-image: radial-gradient(transparent 50%, black 100%);
+      mask-image: radial-gradient(transparent 50%, black 100%);
+    }
+
+    .compass-polygon {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+      right: 20%;
+      bottom: 20%;
+      border: 2px solid rgba(180, 140, 30, 0.3);
+      animation: pulsePolygon 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes rotateCompass {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes rotateCompassReverse {
+      0% {
+        transform: rotate(360deg);
+      }
+
+      100% {
+        transform: rotate(0deg);
+      }
+    }
+
+    @keyframes pulseCompass {
+      0% {
+        transform: translate(-50%, -50%) scale(0.9);
+        opacity: 0.6;
+      }
+
+      100% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 1;
+      }
+    }
+
+    @keyframes pulseRipple {
+      0% {
+        width: 100px;
+        height: 100px;
+        opacity: 1;
+      }
+
+      100% {
+        width: 450px;
+        height: 450px;
+        opacity: 0;
+      }
+    }
+
+    @keyframes pulsePolygon {
+      0% {
+        transform: rotate(45deg) scale(0.9);
+        border-radius: 0%;
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: rotate(135deg) scale(1.1);
+        border-radius: 20%;
+        opacity: 0.7;
+      }
+
+      100% {
+        transform: rotate(225deg) scale(0.9);
+        border-radius: 0%;
+        opacity: 0.3;
+      }
+    }
+
+    /* Full Left-Side Background Animations */
+    .particles-container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* Start from the center */
+      width: 0;
+      height: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .particle {
+      position: absolute;
+      background: rgba(180, 140, 30, 0.8);
+      box-shadow: 0 0 10px rgba(180, 140, 30, 0.5);
+      border-radius: 50%;
+      top: 0;
+      left: 0;
+    }
+
+    .p1 {
+      --angle: 12deg;
+      width: 5px;
+      height: 5px;
+      animation: floatOut 7s infinite 0s;
+    }
+
+    .p2 {
+      --angle: 45deg;
+      width: 8px;
+      height: 8px;
+      animation: floatOut 12s infinite 2s;
+      opacity: 0.6;
+    }
+
+    .p3 {
+      --angle: 85deg;
+      width: 4px;
+      height: 4px;
+      animation: floatOut 9s infinite 1s;
+    }
+
+    .p4 {
+      --angle: 120deg;
+      width: 6px;
+      height: 6px;
+      animation: floatOut 11s infinite 3s;
+    }
+
+    .p5 {
+      --angle: 165deg;
+      width: 5px;
+      height: 5px;
+      animation: floatOut 6s infinite 0.5s;
+      opacity: 1;
+    }
+
+    .p6 {
+      --angle: 195deg;
+      width: 6px;
+      height: 6px;
+      animation: floatOut 10s infinite 5s;
+    }
+
+    .p7 {
+      --angle: 230deg;
+      width: 4px;
+      height: 4px;
+      animation: floatOut 8s infinite 3s;
+      opacity: 0.7;
+    }
+
+    .p8 {
+      --angle: 275deg;
+      width: 9px;
+      height: 9px;
+      animation: floatOut 14s infinite 1.5s;
+      opacity: 0.4;
+    }
+
+    .p9 {
+      --angle: 310deg;
+      width: 5px;
+      height: 5px;
+      animation: floatOut 7s infinite 4s;
+    }
+
+    .p10 {
+      --angle: 345deg;
+      width: 8px;
+      height: 8px;
+      animation: floatOut 12s infinite 2.5s;
+      opacity: 0.8;
+    }
+
+    .p11 {
+      --angle: 30deg;
+      width: 5px;
+      height: 5px;
+      animation: floatOut 10s infinite 1s;
+      opacity: 0.5;
+    }
+
+    .p12 {
+      --angle: 65deg;
+      width: 3px;
+      height: 3px;
+      animation: floatOut 8s infinite 4s;
+      opacity: 0.7;
+    }
+
+    .p13 {
+      --angle: 105deg;
+      width: 6px;
+      height: 6px;
+      animation: floatOut 13s infinite 0.5s;
+      opacity: 0.4;
+    }
+
+    .p14 {
+      --angle: 140deg;
+      width: 4px;
+      height: 4px;
+      animation: floatOut 9s infinite 2.5s;
+      opacity: 0.8;
+    }
+
+    .p15 {
+      --angle: 175deg;
+      width: 7px;
+      height: 7px;
+      animation: floatOut 14s infinite 1.5s;
+      opacity: 0.3;
+    }
+
+    .p16 {
+      --angle: 215deg;
+      width: 3px;
+      height: 3px;
+      animation: floatOut 7s infinite 3.5s;
+      opacity: 0.6;
+    }
+
+    .p17 {
+      --angle: 250deg;
+      width: 5px;
+      height: 5px;
+      animation: floatOut 11s infinite 0s;
+      opacity: 0.5;
+    }
+
+    .p18 {
+      --angle: 285deg;
+      width: 4px;
+      height: 4px;
+      animation: floatOut 9s infinite 3s;
+      opacity: 0.7;
+    }
+
+    .p19 {
+      --angle: 325deg;
+      width: 6px;
+      height: 6px;
+      animation: floatOut 13s infinite 1s;
+      opacity: 0.4;
+    }
+
+    .p20 {
+      --angle: 355deg;
+      width: 3px;
+      height: 3px;
+      animation: floatOut 8s infinite 4.5s;
+      opacity: 0.9;
+    }
+
+    .p21 {
+      --angle: 50deg;
+      width: 5px;
+      height: 5px;
+      animation: floatOut 11s infinite 2s;
+      opacity: 0.6;
+    }
+
+    .p22 {
+      --angle: 130deg;
+      width: 7px;
+      height: 7px;
+      animation: floatOut 15s infinite 0.5s;
+      opacity: 0.3;
+    }
+
+    .p23 {
+      --angle: 200deg;
+      width: 4px;
+      height: 4px;
+      animation: floatOut 10s infinite 4s;
+      opacity: 0.8;
+    }
+
+    .p24 {
+      --angle: 290deg;
+      width: 3px;
+      height: 3px;
+      animation: floatOut 7s infinite 1.5s;
+      opacity: 0.5;
+    }
+
+    .p25 {
+      --angle: 330deg;
+      width: 8px;
+      height: 8px;
+      animation: floatOut 16s infinite 0s;
+      opacity: 0.4;
+    }
+
+    .p26 {
+      --angle: 22deg;
+      width: 4px;
+      height: 4px;
+      animation: floatOut 9s infinite 1.2s;
+      opacity: 0.6;
+    }
+
+    .p27 {
+      --angle: 55deg;
+      width: 6px;
+      height: 6px;
+      animation: floatOut 11s infinite 3.1s;
+      opacity: 0.5;
+    }
+
+    .p28 {
+      --angle: 95deg;
+      width: 3px;
+      height: 3px;
+      animation: floatOut 7s infinite 0.8s;
+      opacity: 0.9;
+    }
+
+    .p29 {
+      --angle: 155deg;
+      width: 5px;
+      height: 5px;
+      animation: floatOut 13s infinite 4.2s;
+      opacity: 0.7;
+    }
+
+    .p30 {
+      --angle: 185deg;
+      width: 7px;
+      height: 7px;
+      animation: floatOut 14s infinite 2.6s;
+      opacity: 0.4;
+    }
+
+    .p31 {
+      --angle: 245deg;
+      width: 4px;
+      height: 4px;
+      animation: floatOut 8s infinite 1.9s;
+      opacity: 0.8;
+    }
+
+    .p32 {
+      --angle: 265deg;
+      width: 5px;
+      height: 5px;
+      animation: floatOut 10s infinite 5.5s;
+      opacity: 0.6;
+    }
+
+    .p33 {
+      --angle: 305deg;
+      width: 3px;
+      height: 3px;
+      animation: floatOut 6s infinite 0.3s;
+      opacity: 0.7;
+    }
+
+    .p34 {
+      --angle: 335deg;
+      width: 6px;
+      height: 6px;
+      animation: floatOut 12s infinite 3.7s;
+      opacity: 0.5;
+    }
+
+    .p35 {
+      --angle: 350deg;
+      width: 4px;
+      height: 4px;
+      animation: floatOut 9s infinite 2.1s;
+      opacity: 0.8;
+    }
+
+    @keyframes floatOut {
+      0% {
+        transform: rotate(var(--angle)) translateY(0px) scale(0);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+        transform: rotate(var(--angle)) translateY(-60px) scale(1);
+      }
+
+      80% {
+        opacity: 1;
+        transform: rotate(var(--angle)) translateY(-250px) scale(1);
+      }
+
+      100% {
+        transform: rotate(var(--angle)) translateY(-350px) scale(0);
+        opacity: 0;
+      }
+    }
+
+    .pre-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--pre-blue);
+      margin-bottom: 3rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .loading-status {
+      width: 100%;
+      margin-top: 2rem;
+    }
+
+    .loading-text {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--pre-muted);
+      margin-bottom: 1rem;
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 2px;
+      background-color: #f0f0f0;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 0.5rem;
+    }
+
+    .progress-bar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background-color: var(--pre-gold);
+      transition: width 0.3s ease-out;
+    }
+
+    .percentage {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--pre-gold);
+    }
+
+    .side-right {
+      width: 60%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 150px);
+      mask-image: linear-gradient(to right, transparent 0%, black 150px);
+    }
+
+    .slider-container {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .pre-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
+      transform: scale(1.1);
+    }
+
+    .pre-slide.active {
+      opacity: 1;
+      animation: preKenBurns 6s forwards linear;
+    }
+
+    .pre-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--pre-overlay);
+      z-index: 2;
+    }
+
+    .pre-divider {
+      position: absolute;
+      left: 0;
+      top: 10%;
+      height: 80%;
+      width: 1px;
+      background: linear-gradient(to bottom, transparent, rgba(212, 175, 55, 0.3), transparent);
+      z-index: 5;
+    }
+
+    @keyframes preFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes prePulseGlow {
+
+      0%,
+      100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+      }
+
+      50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes preKenBurns {
+      0% {
+        transform: scale(1.1);
+      }
+
+      100% {
+        transform: scale(1.2);
+      }
+    }
+
+    .preloader.fade-out {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @media (max-width: 992px) {
+      .preloader-container {
+        flex-direction: column;
+      }
+
+      .side-left {
+        width: 100%;
+        height: 50%;
+      }
+
+      .side-right {
+        width: 100%;
+        height: 50%;
+      }
+
+      .pre-divider {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
+
 <body>
+  <!-- Premium Preloader -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-container">
+      <div class="side-left">
+        <div class="particles-container">
+          <div class="particle p1"></div>
+          <div class="particle p2"></div>
+          <div class="particle p3"></div>
+          <div class="particle p4"></div>
+          <div class="particle p5"></div>
+          <div class="particle p6"></div>
+          <div class="particle p7"></div>
+          <div class="particle p8"></div>
+          <div class="particle p9"></div>
+          <div class="particle p10"></div>
+          <div class="particle p11"></div>
+          <div class="particle p12"></div>
+          <div class="particle p13"></div>
+          <div class="particle p14"></div>
+          <div class="particle p15"></div>
+          <div class="particle p16"></div>
+          <div class="particle p17"></div>
+          <div class="particle p18"></div>
+          <div class="particle p19"></div>
+          <div class="particle p20"></div>
+          <div class="particle p21"></div>
+          <div class="particle p22"></div>
+          <div class="particle p23"></div>
+          <div class="particle p24"></div>
+          <div class="particle p25"></div>
+          <div class="particle p26"></div>
+          <div class="particle p27"></div>
+          <div class="particle p28"></div>
+          <div class="particle p29"></div>
+          <div class="particle p30"></div>
+          <div class="particle p31"></div>
+          <div class="particle p32"></div>
+          <div class="particle p33"></div>
+          <div class="particle p34"></div>
+          <div class="particle p35"></div>
+        </div>
+        <div class="branding-content">
+          <div class="logo-wrapper">
+            <div class="luxury-compass">
+              <div class="compass-sweep"></div>
+              <div class="compass-pulse-ring"></div>
+              <div class="compass-polygon"></div>
+              <div class="compass-ring-1"></div>
+              <div class="compass-ring-2"></div>
+              <div class="compass-center-glow"></div>
+            </div>
+            <img src="/preloader-assets/logo.png" alt="Grace Builders Logo" class="preloader-logo">
+          </div>
+          <h2 class="pre-tagline">Building Your Dream Spaces</h2>
+          <div class="loading-status">
+            <p class="loading-text">Constructing Excellence...</p>
+            <div class="progress-container">
+              <div class="progress-bar" id="pre-progress-bar"></div>
+            </div>
+            <span class="percentage" id="pre-percentage">0%</span>
+          </div>
+        </div>
+      </div>
+      <div class="side-right">
+        <div class="slider-container">
+          <div class="pre-slide active" style="background-image: url('/Images/Commercial001.jpeg');"></div>
+          <div class="pre-slide" style="background-image: url('/Images/Inter02.jpeg');"></div>
+          <div class="pre-slide" style="background-image: url('/Images/Inter04.jpeg');"></div>
+          <div class="pre-slide" style="background-image: url('/Images/Res10.jpg');"></div>
+          <div class="pre-overlay"></div>
+        </div>
+        <div class="pre-divider"></div>
+      </div>
+    </div>
+  </div>
+
   <div id="root"></div>
+  <script>
+    (function () {
+      const slides = document.querySelectorAll('.pre-slide');
+      const progressBar = document.getElementById('pre-progress-bar');
+      const percentageText = document.getElementById('pre-percentage');
+      const preloader = document.getElementById('preloader');
+      let currentSlide = 0;
+      let progress = 0;
+      let isSlidesDone = false;
+
+      function nextSlide() {
+        if (currentSlide < slides.length - 1) {
+          slides[currentSlide].classList.remove('active');
+          currentSlide++;
+          slides[currentSlide].classList.add('active');
+        } else {
+          isSlidesDone = true;
+          progress = 100;
+          clearInterval(slideInterval);
+        }
+      }
+
+      const slideInterval = setInterval(nextSlide, 900); // 900ms per slide
+
+      function updateProgress() {
+        if (progress < 100) {
+          progress += 0.45;
+          if (progress >= 99 && !isSlidesDone) {
+            progress = 99; // Hold at 99% until all slides have shown
+          }
+          if (progress > 100) progress = 100;
+          const p = Math.floor(progress);
+          progressBar.style.width = p + '%';
+          percentageText.innerText = p + '%';
+          requestAnimationFrame(updateProgress);
+        } else {
+          progressBar.style.width = '100%';
+          percentageText.innerText = '100%';
+          setTimeout(finish, 400);
+        }
+      }
+
+      function finish() {
+        clearInterval(slideInterval);
+        preloader.classList.add('fade-out');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => { preloader.style.display = 'none'; }, 1200);
+      }
+
+      updateProgress();
+      window.addEventListener('load', () => {
+        // Optimization: Ensure preloader finishes if page loads very fast
+        if (progress < 100) { /* progress continues naturally */ }
+      });
+    })();
+  </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

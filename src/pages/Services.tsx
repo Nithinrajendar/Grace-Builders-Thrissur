@@ -6,20 +6,6 @@ import { Building2, Home, Wrench, FileText, HardHat, ArrowRight, CheckCircle } f
 
 const services = [
   {
-    id: "residential",
-    icon: Home,
-    title: "Residential Construction",
-    description: "We build custom homes that reflect your unique vision and lifestyle. From modern minimalist designs to classic architectural styles, our team delivers exceptional craftsmanship in every detail.",
-    features: [
-      "Custom home design and construction",
-      "Luxury estate development",
-      "Multi-family housing",
-      "Smart home integration",
-      "Energy-efficient building",
-    ],
-    image: "/Images/Res06.jpeg",
-  },
-  {
     id: "commercial",
     icon: Building2,
     title: "Commercial Buildings",
@@ -32,6 +18,20 @@ const services = [
       "Educational institutions",
     ],
     image: "/Images/Commercial001.jpeg",
+  },
+  {
+    id: "residential",
+    icon: Home,
+    title: "Residential Construction",
+    description: "We build custom homes that reflect your unique vision and lifestyle. From modern minimalist designs to classic architectural styles, our team delivers exceptional craftsmanship in every detail.",
+    features: [
+      "Custom home design and construction",
+      "Luxury estate development",
+      "Multi-family housing",
+      "Smart home integration",
+      "Energy-efficient building",
+    ],
+    image: "/Images/Res06.jpeg",
   },
   {
     id: "renovation",

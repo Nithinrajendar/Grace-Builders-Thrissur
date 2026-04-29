@@ -46,7 +46,7 @@ export function TrustSection() {
               <span className="text-accent">Excellence</span>
             </h2>
             <p className="text-primary-foreground/80 text-lg leading-relaxed mb-8">
-              For over 15 years, we've earned the trust of homeowners, developers,
+              For over 20 years, we've earned the trust of homeowners, developers,
               and corporations by consistently delivering exceptional results. Our
               certified engineers and commitment to quality set us apart.
             </p>
@@ -82,7 +82,7 @@ export function TrustSection() {
               {/* Big Stat */}
               <div className="text-center mb-10">
                 <div className="text-7xl md:text-8xl font-display font-bold text-accent mb-2">
-                  15+
+                  20+
                 </div>
                 <div className="text-xl text-primary-foreground/80">
                   Years of Construction Excellence
